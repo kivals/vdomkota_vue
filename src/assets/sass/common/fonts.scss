@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+//@import url("https://fonts.googleapis.com/css?family=PT+Sans:regular,italic,700&display=swap&subset=cyrillic-ext");
+
+$font_path: '~@/assets/fonts/';
+@font-face {
+  font-family: "FF_DIN_Round_Pro";
+  font-display: swap;
+  src: url($font_path + "FF_DIN_Round_Pro_-_Regular.woff") format("woff"),
+  url($font_path + "FF_DIN_Round_Pro_-_Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "FF_DIN_Round_Pro";
+  font-display: swap;
+  src: url($font_path + "FF_DIN_Round_Pro_-_Medium.woff") format("woff"),
+  url($font_path + "FF_DIN_Round_Pro_-_Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "FF_DIN_Round_Pro";
+  font-display: swap;
+  src: url($font_path + "FF_DIN_Round_Pro_-_Light.woff") format("woff"),
+  url($font_path + "FF_DIN_Round_Pro_-_Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "FF_DIN_Round_Pro";
+  font-display: swap;
+  src: url($font_path + "FF_DIN_Round_Pro_-_Bold.woff") format("woff"),
+  url($font_path + "FF_DIN_Round_Pro_-_Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "FF_DIN_Round_Pro";
+  font-display: swap;
+  src: url($font_path + "FF_DIN_Round_Pro_-_Black.woff") format("woff"),
+  url($font_path + "FF_DIN_Round_Pro_-_Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+}
