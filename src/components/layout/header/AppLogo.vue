@@ -1,7 +1,7 @@
 <template>
-  <div class="header__logo">
-    <img :src="logoPath" alt="LOGO" />
-  </div>
+  <a href="#">
+    <img :src="imgUrl" alt="LOGO" />
+  </a>
 </template>
 
 <script>
@@ -9,8 +9,8 @@ export default {
   name: 'AppLogo',
   data() {
     return {
-      //TODO должен получать от родителя
-      logoPath: '/img/logo.jpg',
+      //TODO imgUrl должен получать от родителя
+      imgUrl: '/img/logo.jpg',
     };
   },
 };

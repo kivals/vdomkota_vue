@@ -1,5 +1,5 @@
 <template>
-  <nav class="header__menu menu">
+  <nav class="menu">
     <ul class="menu__list">
       <li
         v-for="item in menu"

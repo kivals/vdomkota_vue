@@ -16,8 +16,5 @@ export default {
 </script>
 <style lang="scss" rel="stylesheet/scss">
   //todo перенести импорты в style.scss
-@import './assets/sass/common/_variables.scss';
-@import './assets/sass/common/nullstyle.scss';
-@import './assets/sass/common/fonts.scss';
 @import './assets/sass/common/style.scss';
 </style>

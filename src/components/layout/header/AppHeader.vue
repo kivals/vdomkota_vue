@@ -19,7 +19,7 @@ export default {
   data() {
     return {
       menuItems: [
-        { name: 'Home', title: 'Главна', active: true },
+        { name: 'Home', title: 'Главная', active: true },
         { name: 'SearchHosts', title: 'Ищем хозяев', active: false },
         { name: 'Articles', title: 'Статьи', active: false },
         { name: 'Details', title: 'Реквизиты', active: false },
@@ -30,4 +30,12 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.header {
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+</style>
