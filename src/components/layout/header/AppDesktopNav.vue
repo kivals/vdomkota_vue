@@ -14,12 +14,7 @@
 
 <script>
 export default {
-  name: 'AppNav',
-  /*
-  menuItems: [
-  { name, active, title }
-  ]
-   */
+  name: 'AppDesktopNav',
   props: {
     menu: {
       type: Array,
@@ -46,12 +41,15 @@ export default {
         a::after {
           content: '';
           position: absolute;
-          left: 0px;
-          bottom: 0px;
+          left: 0;
+          bottom: 0;
           background: #f95959;
           width: 25px;
           height: 2px;
         }
+      }
+      @media (max-width: $md2 + px) {
+        margin: 0 40px 0 0;
       }
     }
   }

@@ -1,6 +1,6 @@
 <template>
   <a href="#">
-    <img :src="imgUrl" alt="LOGO" />
+    <img :src="imageUrl" alt="LOGO" />
   </a>
 </template>
 
@@ -10,14 +10,25 @@ export default {
   data() {
     return {
       //TODO imgUrl должен получать от родителя
-      imgUrl: '/img/logo.jpg',
+      image: 'logo.jpg',
     };
+  },
+  computed: {
+    imageUrl() {
+      return require(`@/assets/img/${this.image}`);
+    },
   },
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 img {
   width: 150px;
+  @media (max-width: $md2 + px) {
+    width: 130px;
+  }
+  @media (max-width: $md3 + px) {
+    width: 110px;
+  }
 }
 </style>
