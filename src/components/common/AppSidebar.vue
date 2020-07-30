@@ -32,7 +32,7 @@ export default {
   },
   model: {
     prop: 'isNavOpen',
-    event: 'click'
+    event: 'click',
   },
   methods: {
     closeSidebarPanel() {

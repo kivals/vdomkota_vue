@@ -1,7 +1,6 @@
 <template>
   <div>
     <app-burger v-model="isNavOpen"></app-burger>
-<!--    <app-burger :active="isNavOpen" @click="isNavOpen = $event"></app-burger>-->
     <app-sidebar :menu="menu" v-model="isNavOpen"></app-sidebar>
   </div>
 </template>
