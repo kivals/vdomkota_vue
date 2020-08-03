@@ -1,10 +1,15 @@
 <template>
-  <h1>MAIN</h1>
+  <app-intro></app-intro>
 </template>
 
 <script>
+import AppIntro from '@/components/AppIntro';
+
 export default {
-  name: "Main"
+  name: 'Main',
+  components: {
+    AppIntro,
+  },
 };
 </script>
 
