@@ -1,5 +1,5 @@
 <template>
-  <a href="#" class="btn" @click="clickHandler">
+  <a href="#" class="btn">
     <slot></slot>
   </a>
 </template>
@@ -7,11 +7,6 @@
 <script>
 export default {
   name: 'AppButton',
-  methods: {
-    clickHandler() {
-      this.$emit('click');
-    },
-  },
 };
 </script>
 
