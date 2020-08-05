@@ -32,6 +32,7 @@ export default {
 
 <style lang="scss" scoped>
 .intro {
+  margin-bottom: 80px;
   text-align: center;
   height: 600px;
   display: flex;
@@ -39,6 +40,13 @@ export default {
   justify-content: center;
   color: #fff;
   position: relative;
+  @media (max-width:$md1+px){
+    height: 400px;
+  }
+  @media (max-width:$md2+px){
+    height: 250px;
+    margin-bottom: 50px;
+  }
   &__video {
     width: 100%;
     height: 100%;
@@ -46,6 +54,9 @@ export default {
     video {
       min-width: 100%;
       min-height: 100%;
+    }
+    @media (max-width:$md4+px){
+      display: none;
     }
   }
   &__text {
@@ -63,6 +74,11 @@ export default {
     line-height: 57px;
     letter-spacing: 0.06em;
     color: #fff;
+    @media (max-width:$md3+px){
+      font-size: 30px;
+      line-height: 40px;
+      letter-spacing: 0.03em;
+    }
   }
   &__btn {
     background-color: $main-color;
