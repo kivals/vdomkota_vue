@@ -20,7 +20,7 @@ export default {
       };
     },
     imageUrl() {
-      return require(`@/assets/img/intro/${this.image}`);
+      return require(`@/assets/img/cats_slider/${this.image}`);
     },
   },
 };
@@ -32,8 +32,7 @@ export default {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  img {
-    display: none;
-  }
+  height: 100%;
+  width: 100%;
 }
 </style>

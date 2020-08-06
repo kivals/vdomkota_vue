@@ -28,7 +28,10 @@ img {
     width: 130px;
   }
   @media (max-width: $md3 + px) {
-    width: 110px;
+    width: 100px;
+  }
+  @media (max-width: $md4 + px) {
+    width: 80px;
   }
 }
 </style>
