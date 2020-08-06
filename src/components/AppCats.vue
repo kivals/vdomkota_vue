@@ -1,20 +1,25 @@
 <template>
-  <section class="cats container">
-    <VueSlickCarousel class="slider-cats" v-bind="slickOptions">
-      <div
-        v-for="(item, index) in 10"
-        :key="index"
-        class="slider-cats__item cat-card"
-      >
-        <div class="cat-card__wrapper">
-          <div class="cat-card__photo">
-            <app-div-cover class="cat-card__img" :imagePath="imagePath"></app-div-cover>
+  <section class="cats">
+    <div class="container">
+      <VueSlickCarousel class="slider-cats" v-bind="slickOptions">
+        <div
+          v-for="(item, index) in 10"
+          :key="index"
+          class="slider-cats__item cat-card"
+        >
+          <div class="cat-card__wrapper">
+            <div class="cat-card__photo">
+              <app-div-cover
+                class="cat-card__img"
+                :imagePath="imagePath"
+              ></app-div-cover>
+            </div>
+            <p class="cat-card__name">Кличка кота</p>
+            <app-button class="cat-card__btn">Подробнее</app-button>
           </div>
-          <p class="cat-card__name">Кличка кота</p>
-          <app-button class="cat-card__btn">Подробнее</app-button>
         </div>
-      </div>
-    </VueSlickCarousel>
+      </VueSlickCarousel>
+    </div>
   </section>
 </template>
 
@@ -58,9 +63,10 @@ export default {
 
 <style lang="scss" scoped>
 .cats {
-  margin-bottom: $mt-section;
+  background-color: $main-background-color;
+  padding: 80px 0;
   @media (max-width: $md2+px) {
-    margin-bottom: 50px;
+    padding: 40px 0;
   }
 }
 .cat-card {

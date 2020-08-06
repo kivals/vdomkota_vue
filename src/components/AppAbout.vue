@@ -44,10 +44,13 @@ export default {
 .about {
   display: flex;
   justify-content: space-between;
-  margin-bottom: $mt-section;
+  padding-top: 80px;
+  padding-bottom: 80px;
   @media (max-width: $md2+px) {
     flex-direction: column;
     align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 
   &__picture {
