@@ -8,7 +8,7 @@
       >
         <div class="cat-card__wrapper">
           <div class="cat-card__photo">
-            <app-div-cover class="cat-card__img" image="2.jpg"></app-div-cover>
+            <app-div-cover class="cat-card__img" :imagePath="imagePath"></app-div-cover>
           </div>
           <p class="cat-card__name">Кличка кота</p>
           <app-button class="cat-card__btn">Подробнее</app-button>
@@ -50,7 +50,7 @@ export default {
           },
         ],
       },
-      imgPath: require('@/assets/img/cats_slider/1.jpg'),
+      imagePath: require('@/assets/img/cats_slider/1.jpg'),
     };
   },
 };
@@ -58,7 +58,7 @@ export default {
 
 <style lang="scss" scoped>
 .cats {
-  margin-bottom: 80px;
+  margin-bottom: $mt-section;
   @media (max-width: $md2+px) {
     margin-bottom: 50px;
   }

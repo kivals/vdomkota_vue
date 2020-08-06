@@ -8,7 +8,7 @@
 export default {
   name: 'AppDivCover',
   props: {
-    image: {
+    imagePath: {
       type: String,
       required: true,
     },
@@ -16,11 +16,8 @@ export default {
   computed: {
     cssVars() {
       return {
-        '--bg-image': `url('${this.imageUrl}')`,
+        '--bg-image': `url('${this.imagePath}')`,
       };
-    },
-    imageUrl() {
-      return require(`@/assets/img/cats_slider/${this.image}`);
     },
   },
 };
