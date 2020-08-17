@@ -8,11 +8,13 @@
 
 <script>
 import BaseLayout from '@/components/layout/BaseLayout';
+import AdminLayout from '@/components/layout/AdminLayout';
 
 export default {
   name: 'App',
   components: {
     BaseLayout,
+    AdminLayout,
   },
   computed: {
     layout() {
