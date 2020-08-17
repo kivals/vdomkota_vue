@@ -6,7 +6,7 @@
         :key="item.name"
         :class="{ active: item.active }"
       >
-        <a href="" class="menu__link">{{ item.title }}</a>
+        <router-link :to="item.to" class="menu__link">{{ item.title }}</router-link>
       </li>
     </ul>
   </nav>

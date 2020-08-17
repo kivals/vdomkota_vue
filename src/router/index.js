@@ -10,6 +10,18 @@ const routes = [
     name: 'Main',
     component: Main,
   },
+  {
+    path: '/find',
+    name: 'Find',
+    component: () => import('@/pages/Find'),
+  },
+  /* Admin routes */
+  {
+    path: '/admin/',
+    name: 'AdminHome',
+    meta: { layout: 'main' },
+    component: () => import('@/pages/AdminMainInfo'),
+  },
 ];
 
 const router = new VueRouter({

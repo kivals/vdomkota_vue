@@ -1,16 +1,23 @@
 <template>
   <div id="app">
-    <app-header></app-header>
-    <router-view />
+    <component :is="layout">
+      <router-view />
+    </component>
   </div>
 </template>
 
 <script>
-import AppHeader from '@/components/layout/header/AppHeader';
+import BaseLayout from '@/components/layout/BaseLayout';
+
 export default {
   name: 'App',
   components: {
-    AppHeader,
+    BaseLayout,
+  },
+  computed: {
+    layout() {
+      return (this.$route.meta.layout || 'base') + '-layout';
+    },
   },
 };
 </script>
