@@ -1,14 +1,14 @@
 <template>
   <div id="app">
-    <component ref="admin1" :is="layout">
+    <component :is="layout">
       <router-view />
     </component>
   </div>
 </template>
 
 <script>
-import BaseLayout from '@/components/layout/BaseLayout';
-import AdminLayout from '@/components/layout/AdminLayout';
+import BaseLayout from '@/components/layouts/BaseLayout';
+import AdminLayout from '@/components/layouts/admin/AdminLayout';
 
 export default {
   name: 'App',

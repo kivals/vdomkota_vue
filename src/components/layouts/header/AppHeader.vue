@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import AppLogo from '@/components/layout/header/AppLogo';
-import AppDesktopNav from '@/components/layout/header/AppDesktopNav';
-import AppMobileNav from '@/components/layout/header/AppMobileNav';
+import AppLogo from '@/components/layouts/header/AppLogo';
+import AppDesktopNav from '@/components/layouts/header/AppDesktopNav';
+import AppMobileNav from '@/components/layouts/header/AppMobileNav';
 const MOBILE_WIDTH = 680;
 export default {
   name: 'AppHeader',

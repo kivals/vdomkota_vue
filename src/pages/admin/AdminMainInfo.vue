@@ -12,7 +12,6 @@
         <p>Редактировать меню</p>
       </li>
     </ul>
-
   </div>
 </template>
 
@@ -39,7 +38,7 @@ export default {
     width: 150px;
   }
 }
-li  {
+li {
   margin-top: 20px;
 }
 </style>

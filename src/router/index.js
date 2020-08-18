@@ -20,7 +20,7 @@ const routes = [
     path: '/admin/',
     name: 'AdminHome',
     meta: { layout: 'admin' },
-    component: () => import('@/pages/AdminMainInfo'),
+    component: () => import('@/pages/admin/AdminMainInfo'),
   },
 ];
 
