@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <component :is="layout">
+    <component ref="admin1" :is="layout">
       <router-view />
     </component>
   </div>
