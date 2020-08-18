@@ -9,15 +9,19 @@
 <script>
 import BaseLayout from '@/components/layouts/BaseLayout';
 import AdminLayout from '@/components/layouts/admin/AdminLayout';
+import AdminEmptyLayout from '@/components/layouts/admin/AdminEmptyLayout';
 
 export default {
   name: 'App',
   components: {
     BaseLayout,
     AdminLayout,
+    AdminEmptyLayout,
   },
   computed: {
     layout() {
+      console.log(this.$route.path);
+      console.log((this.$route.meta.layout || 'base') + '-layout');
       return (this.$route.meta.layout || 'base') + '-layout';
     },
   },
