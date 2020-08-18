@@ -1,5 +1,5 @@
 <template>
-  <nav class="menu">
+  <div class="menu">
     <ul class="menu__list">
       <li
         v-for="item in menu"
@@ -9,7 +9,7 @@
         <router-link :to="item.to" class="menu__link">{{ item.title }}</router-link>
       </li>
     </ul>
-  </nav>
+  </div>
 </template>
 
 <script>
