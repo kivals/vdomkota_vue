@@ -77,10 +77,20 @@ export default {
     password: { required, minLength: minLength(6) },
   },
   methods: {
-    onSubmit() {
+    async onSubmit() {
       if (this.$v.$invalid) {
         this.$v.$touch();
         return;
+      }
+      const formData = {
+        email: this.email,
+        password: this.password,
+      };
+      try {
+        await this.$store.dispatch('loginUser', formData);
+        this.$router.push('/admin');
+      } catch (e) {
+        console.log(e);
       }
     },
   },
@@ -94,8 +104,7 @@ export default {
 .auth-submit {
   width: 100%;
 }
-
-.helper-text.invalid{
-  color:#f44336
+.helper-text.invalid {
+  color: #f44336;
 }
 </style>
