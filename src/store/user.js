@@ -2,11 +2,11 @@ import firebase from 'firebase/app';
 
 export default {
   state: {
-    user: null,
+    userId: null,
   },
   mutations: {
     setUser(state, payload) {
-      state.user = payload;
+      state.userId = payload;
     },
   },
   actions: {
@@ -15,7 +15,7 @@ export default {
         const user = await firebase
           .auth()
           .signInWithEmailAndPassword(email, password);
-        commit('setUser', user);
+        commit('setUser', user.user.uid);
       } catch (e) {
         commit('setError', e);
         throw e;
@@ -24,10 +24,10 @@ export default {
   },
   getters: {
     user(state) {
-      return state.user;
+      return state.userId;
     },
     checkUser(state) {
-      return state.user !== null;
+      return state.userId !== null;
     },
   },
 };

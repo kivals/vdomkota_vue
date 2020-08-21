@@ -3,7 +3,7 @@ import App from './App.vue';
 import router from './router';
 import Vuelidate from 'vuelidate/src';
 import firebase from 'firebase/app';
-
+import 'firebase/database';
 import 'firebase/auth';
 import store from './store';
 
@@ -26,8 +26,13 @@ firebase.initializeApp({
   appId: '1:174606186449:web:2c6b3bdf9c12f80294d2f0',
 });
 
-new Vue({
-  router,
-  store,
-  render: h => h(App),
-}).$mount('#app');
+let app;
+firebase.auth().onAuthStateChanged(() => {
+  if (!app) {
+    app = new Vue({
+      router,
+      store,
+      render: h => h(App),
+    }).$mount('#app');
+  }
+});
