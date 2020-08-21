@@ -7,6 +7,16 @@
 <script>
 export default {
   name: 'AdminEmptyLayout',
+  computed: {
+    error() {
+      return this.$store.getters.error;
+    },
+  },
+  watch: {
+    error(error) {
+      this.$error(error.message || 'Что-то пошло не так');
+    },
+  },
 };
 </script>
 

@@ -82,12 +82,12 @@ export default {
         this.$v.$touch();
         return;
       }
-      const formData = {
+      const user = {
         email: this.email,
         password: this.password,
       };
       try {
-        await this.$store.dispatch('loginUser', formData);
+        await this.$store.dispatch('loginUser', user);
         this.$router.push('/admin');
       } catch (e) {
         console.log(e);

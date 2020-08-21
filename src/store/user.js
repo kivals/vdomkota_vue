@@ -17,7 +17,7 @@ export default {
           .signInWithEmailAndPassword(email, password);
         commit('setUser', user);
       } catch (e) {
-        console.log(e);
+        commit('setError', e);
         throw e;
       }
     },

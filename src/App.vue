@@ -20,8 +20,6 @@ export default {
   },
   computed: {
     layout() {
-      console.log(this.$route.path);
-      console.log((this.$route.meta.layout || 'base') + '-layout');
       return (this.$route.meta.layout || 'base') + '-layout';
     },
   },

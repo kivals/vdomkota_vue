@@ -6,12 +6,15 @@ import firebase from 'firebase/app';
 
 import 'firebase/auth';
 import store from './store';
+
+import messagePlugin from '@/plugins/message.plugin';
 import 'materialize-css/dist/js/materialize.min';
 
 Vue.config.productionTip = false;
 
 /* Plugins */
 Vue.use(Vuelidate);
+Vue.use(messagePlugin);
 
 firebase.initializeApp({
   apiKey: 'AIzaSyCKNd2ou0_Xuoqri2T83Xw14hr4T5wiK_g',
@@ -23,13 +26,8 @@ firebase.initializeApp({
   appId: '1:174606186449:web:2c6b3bdf9c12f80294d2f0',
 });
 
-let app;
-firebase.auth().onAuthStateChanged(() => {
-  if (!app) {
-    app = new Vue({
-      router,
-      store,
-      render: h => h(App),
-    }).$mount('#app');
-  }
-});
+new Vue({
+  router,
+  store,
+  render: h => h(App),
+}).$mount('#app');
