@@ -20,6 +20,12 @@ const routes = [
     meta: { layout: 'base' },
     component: () => import('@/pages/Find'),
   },
+  {
+    path: '*',
+    name: '404',
+    meta: { layout: 'base-empty' },
+    component: () => import('@/pages/NotFoundPage'),
+  },
   /* Admin routes */
   {
     path: '/admin',

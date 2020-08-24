@@ -10,6 +10,7 @@
 import BaseLayout from '@/components/layouts/BaseLayout';
 import AdminLayout from '@/components/layouts/admin/AdminLayout';
 import AdminEmptyLayout from '@/components/layouts/admin/AdminEmptyLayout';
+import BaseEmptyLayout from '@/components/layouts/BaseEmptyLayout';
 
 export default {
   name: 'App',
@@ -17,6 +18,7 @@ export default {
     BaseLayout,
     AdminLayout,
     AdminEmptyLayout,
+    BaseEmptyLayout,
   },
   computed: {
     layout() {
