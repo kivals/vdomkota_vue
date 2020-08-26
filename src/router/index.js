@@ -34,7 +34,7 @@ const routes = [
     component: AdminMainInfo,
   },
   {
-    path: '/login',
+    path: '/admin/login',
     name: 'AdminLogin',
     meta: { layout: 'admin-empty' },
     component: AdminLogin,
@@ -53,7 +53,7 @@ router.beforeEach((to, from, next) => {
   const requireAuth = to.matched.some(record => record.meta.auth);
 
   if (requireAuth && !currentUser) {
-    next('/login');
+    next({ name: 'AdminLogin' });
   } else {
     next();
   }
