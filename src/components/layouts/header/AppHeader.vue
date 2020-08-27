@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import AppLogo from '@/components/layout/header/AppLogo';
-import AppDesktopNav from '@/components/layout/header/AppDesktopNav';
-import AppMobileNav from '@/components/layout/header/AppMobileNav';
+import AppLogo from '@/components/layouts/header/AppLogo';
+import AppDesktopNav from '@/components/layouts/header/AppDesktopNav';
+import AppMobileNav from '@/components/layouts/header/AppMobileNav';
 const MOBILE_WIDTH = 680;
 export default {
   name: 'AppHeader',
@@ -23,11 +23,11 @@ export default {
   data() {
     return {
       menu: [
-        { name: 'Home', title: 'Главная', active: true },
-        { name: 'SearchHosts', title: 'Ищем хозяев', active: false },
-        { name: 'Articles', title: 'Статьи', active: false },
-        { name: 'Details', title: 'Реквизиты', active: false },
-        { name: 'About', title: 'О нас', active: false },
+        { name: 'Home', title: 'Главная', to: '/', active: true },
+        { name: 'SearchHosts', title: 'Ищем хозяев', to: '/find', active: false },
+        { name: 'Articles', title: 'Статьи', to: '/', active: false },
+        { name: 'Details', title: 'Реквизиты', to: '/', active: false },
+        { name: 'About', title: 'О нас', to: '/', active: false },
       ],
       isMobile: false,
     };

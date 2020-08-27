@@ -1,0 +1,35 @@
+<template>
+  <div class="page page_404">
+    <h1>Страница не найдена <span>404</span></h1>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'NotFoundPage',
+};
+</script>
+
+<style lang="scss" scoped>
+.page.page_404 {
+  padding: 100px 0;
+  h1 {
+    font-weight: 700;
+    font-size: 52px;
+    line-height: 1.2;
+    text-align: center;
+    & > span {
+      display: block;
+      font-size: 144px;
+    }
+  }
+}
+@media all and (max-width: 767px) {
+  .page.page_404 h1 {
+    font-size: 36px;
+  }
+  .page.page_404 h1 > span {
+    font-size: 108px;
+  }
+}
+</style>

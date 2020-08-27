@@ -1,22 +1,33 @@
 <template>
   <div id="app">
-    <app-header></app-header>
-    <router-view />
-    <app-footer></app-footer>
+    <component :is="layout">
+      <router-view />
+    </component>
   </div>
 </template>
 
 <script>
-import AppHeader from '@/components/layout/header/AppHeader';
-import AppFooter from '@/components/layout/AppFooter';
+import BaseLayout from '@/components/layouts/BaseLayout';
+import AdminLayout from '@/components/layouts/admin/AdminLayout';
+import AdminEmptyLayout from '@/components/layouts/admin/AdminEmptyLayout';
+import BaseEmptyLayout from '@/components/layouts/BaseEmptyLayout';
+
 export default {
   name: 'App',
   components: {
-    AppHeader,
-    AppFooter,
+    BaseLayout,
+    AdminLayout,
+    AdminEmptyLayout,
+    BaseEmptyLayout,
+  },
+  computed: {
+    layout() {
+      return (this.$route.meta.layout || 'base') + '-layout';
+    },
   },
 };
 </script>
 <style lang="scss">
 @import '@/assets/sass/common/style.scss';
+@import '~materialize-css/dist/css/materialize.min.css';
 </style>

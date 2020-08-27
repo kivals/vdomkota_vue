@@ -9,7 +9,7 @@
       <div v-if="isNavOpen" class="sidebar-panel">
         <ul class="sidebar-panel-nav">
           <li v-for="item in menu" :key="item.name">
-            <a href="#">{{ item.title }}</a>
+            <router-link :to="item.to">{{ item.title }}</router-link>
           </li>
         </ul>
       </div>

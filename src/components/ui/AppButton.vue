@@ -1,5 +1,5 @@
 <template>
-  <a href="#" class="btn">
+  <a href="#" class="app-btn">
     <slot></slot>
   </a>
 </template>
@@ -11,7 +11,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.btn {
+.app-btn {
   display: block;
   text-transform: uppercase;
   color: #000;
@@ -27,7 +27,7 @@ export default {
   }
 }
 
-.btn:hover {
+.app-btn:hover {
   text-decoration: none;
   background-color: $main-color;
   color: #000;
