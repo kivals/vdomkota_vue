@@ -1,14 +1,16 @@
 <template>
   <div>
     <app-header></app-header>
-    <router-view />
+    <main>
+      <router-view />
+    </main>
     <app-footer></app-footer>
   </div>
 </template>
 
 <script>
 import AppHeader from '@/components/layouts/header/AppHeader';
-import AppFooter from '@/components/layout/AppFooter';
+import AppFooter from '@/components/layouts/AppFooter';
 
 export default {
   name: 'BaseLayout',
