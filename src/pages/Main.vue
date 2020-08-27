@@ -2,9 +2,9 @@
   <div>
     <app-intro></app-intro>
     <app-cats></app-cats>
-    <app-about></app-about>
     <app-donation></app-donation>
     <app-help></app-help>
+    <app-about></app-about>
   </div>
 </template>
 
