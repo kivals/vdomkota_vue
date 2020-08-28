@@ -73,7 +73,7 @@ export default {
   cursor: pointer;
   margin-bottom: 20px;
   &:hover {
-    box-shadow: 0 14px 20px -15px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 2px 30px 5px rgba(13, 13, 13, 0.03);
     .cat-card__btn {
       background-color: $main-color;
     }

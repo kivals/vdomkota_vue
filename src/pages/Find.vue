@@ -68,8 +68,8 @@ export default {
   }
 }
 .cat-card {
+  cursor: pointer;
   border-radius: 9px;
-  max-height: 425px;
   background-color: #fff;
   &__img {
     border-top-left-radius: 9px;
@@ -90,7 +90,14 @@ export default {
     margin-bottom: 25px;
   }
   &__btn {
-    margin-bottom: 34px;
+    margin: 0 20px 34px 20px;
+  }
+
+  &:hover {
+    box-shadow: 0px 2px 30px 5px rgba(13, 13, 13, 0.03);
+    .cat-card__btn {
+      background-color: $main-color;
+    }
   }
 }
 </style>
