@@ -1,6 +1,7 @@
 <template>
   <div class="find-page">
-    <div class="container">
+    <app-popup v-if="isCatPopupVisible"></app-popup>
+    <div class="container" @click="showCatPopup">
       <p class="find-page__title">Our friends who are looking for a house</p>
       <div class="find-page__cats">
         <div v-for="(image, idx) in images" :key="idx" class="cat-card">
@@ -23,12 +24,14 @@
 <script>
 import AppButton from '@/components/ui/AppButton';
 import AppDivCover from '@/components/ui/AppDivCover';
+import AppPopup from '@/components/ui/popup/AppPopup';
 
 export default {
   name: 'Find',
   components: {
     AppButton,
     AppDivCover,
+    AppPopup,
   },
   data() {
     return {
@@ -39,7 +42,13 @@ export default {
         require('@/assets/img/cats_slider/4.jpg'),
         require('@/assets/img/cats_slider/8.jpg'),
       ],
+      isCatPopupVisible: false,
     };
+  },
+  methods: {
+    showCatPopup() {
+      this.isCatPopupVisible = true;
+    },
   },
 };
 </script>

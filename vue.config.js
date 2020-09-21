@@ -5,7 +5,7 @@ module.exports = {
   css: {
     loaderOptions: {
       scss: {
-        additionalData: `@import "/home/melnik/web/vdomkota_vue/src/assets/sass/common/style.scss";`,
+        additionalData: `@import "./src/assets/sass/common/style.scss";`,
       },
     },
   },
