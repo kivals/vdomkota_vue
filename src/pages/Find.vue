@@ -1,10 +1,17 @@
 <template>
   <div class="find-page">
-    <app-popup v-if="isCatPopupVisible"></app-popup>
-    <div class="container" @click="showCatPopup">
+    <app-popup v-if="isCatPopupVisible" @closePopup="closePopup">
+      sadfsadfasdfsadf
+    </app-popup>
+    <div class="container">
       <p class="find-page__title">Our friends who are looking for a house</p>
       <div class="find-page__cats">
-        <div v-for="(image, idx) in images" :key="idx" class="cat-card">
+        <div
+          v-for="(image, idx) in images"
+          :key="idx"
+          class="cat-card"
+          @click="showCatPopup"
+        >
           <app-div-cover
             class="cat-card__img"
             :imagePath="image"
@@ -49,6 +56,9 @@ export default {
     showCatPopup() {
       this.isCatPopupVisible = true;
     },
+    closePopup() {
+      this.isCatPopupVisible = false;
+    },
   },
 };
 </script>
@@ -65,30 +75,70 @@ export default {
     letter-spacing: 0.06em;
     color: #545454;
     max-width: 400px;
+    @media (max-width: $md2+px) {
+      margin: 0 auto 42px auto;
+      font-size: 25px;
+      line-height: 35px;
+      letter-spacing: 0.05em;
+    }
+    @media (max-width: $md3+px) {
+      margin: 0 auto 22px auto;
+      font-size: 20px;
+      line-height: 25px;
+      letter-spacing: 0.04em;
+    }
   }
   &__cats {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
     .cat-card {
-      flex: 0 0 23%;
+      width: 250px;
       margin-bottom: 34px;
+      @media (max-width: $md2+px) {
+        width: 210px;
+        margin-bottom: 24px;
+      }
+      @media (max-width: $md3+px) {
+        width: 180px;
+        margin-bottom: 20px;
+      }
+      @media (max-width: $md4+px) {
+        width: 100%;
+      }
     }
+  }
+  @media (max-width: $md2+px) {
+    padding-top: 48px;
+  }
+  @media (max-width: $md3+px) {
+    padding-top: 28px;
   }
 }
 .cat-card {
   cursor: pointer;
   border-radius: 9px;
   background-color: #fff;
+  &:hover {
+    box-shadow: 0 2px 30px 5px rgba(13, 13, 13, 0.03);
+    .cat-card__btn {
+      background-color: $main-color;
+    }
+  }
   &__img {
+    width: 100%;
+    height: 250px;
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
-    width: 270px;
-    height: 270px;
     margin-bottom: 30px;
-    img {
-      max-width: 100%;
+    @media (max-width: $md2+px) {
+      height: 230px;
     }
+    @media (max-width: $md3+px) {
+      height: 200px;
+      margin-bottom: 20px;
+    }
+
   }
   &__title {
     text-align: center;
@@ -97,15 +147,17 @@ export default {
     letter-spacing: 0.06em;
     color: #545454;
     margin-bottom: 25px;
+    @media (max-width: $md3+px) {
+      font-size: 15px;
+      line-height: 25px;
+      letter-spacing: 0.04em;
+      margin-bottom: 15px;
+    }
   }
   &__btn {
-    margin: 0 20px 34px 20px;
-  }
-
-  &:hover {
-    box-shadow: 0px 2px 30px 5px rgba(13, 13, 13, 0.03);
-    .cat-card__btn {
-      background-color: $main-color;
+    margin: 0 10px 34px 10px;
+    @media (max-width: $md3+px) {
+      margin: 0 10px 24px 10px;
     }
   }
 }
