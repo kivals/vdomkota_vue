@@ -1,16 +1,24 @@
 <template>
   <div class="popup_wrapper" ref="popup_wrapper">
     <div class="app-popup">
-      <div class="app-popup__header">
-        <span>PopupName</span>
-        <span>
-          <i @click="closePopup" class="material-icons">close</i>
-        </span>
+      <div class="app-popup__img"></div>
+      <div class="app-popup__text cat-description">
+        <div class="cat-description__title">
+          Jennifer
+        </div>
+        <div class="cat-description__text">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+          efficitur blandit condimentum. Proin accumsan lorem vel gra vida
+          fringilla. Suspendisse potenti. Mauris ut pulvinar nunc. Donec
+          consectetur, diam in porta tempus, urna ligula ves tibulum nibh.
+        </div>
+        <ul class="cat-description__list">
+          <li><span>Age:</span>2 month</li>
+          <li><span>Inoculations:</span>none</li>
+          <li><span>Diseases:</span>none</li>
+          <li><span>Parasites:</span>none</li>
+        </ul>
       </div>
-      <div class="app-popup__content">
-        <slot></slot>
-      </div>
-      <div class="app-popup__footer"></div>
     </div>
   </div>
 </template>
@@ -50,19 +58,30 @@ export default {
   padding: 16px;
   position: fixed;
   top: 50%;
-  width: 400px;
+  width: 970px;
   background: #fff;
   box-shadow: 0 0 17px 0 #e7e7e7;
-  &__header,
-  &__footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+}
+.cat-description {
+  &__title {
+    font-size: 35px;
+    line-height: 45px;
+    letter-spacing: 0.06em;
+    color: #545454;
   }
-  &__content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  &__text {
+    font-size: 15px;
+    line-height: 24px;
+    color: #4c4c4c;
+  }
+  &__list {
+    font-size: 15px;
+    color: #545454;
+    letter-spacing: 0.06em;
+    span {
+      font-size: 17px;
+      line-height: 34px;
+    }
   }
 }
 </style>
