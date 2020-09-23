@@ -91,7 +91,9 @@ export default {
     border: 2px solid $main-color;
     border-radius: 50%;
     @media (max-width:$md4+px){
-      display: none;
+      top: auto;
+      right: 10px;
+      bottom: 10px;
     }
   }
   &__img {
@@ -152,9 +154,6 @@ export default {
     }
   }
   @media (max-width:$md3+px){
-    padding: 35px 25px;
-  }
-  @media (max-width:$md4+px){
     padding: 20px 10px;
   }
 }

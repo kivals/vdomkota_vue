@@ -9,7 +9,9 @@
     <div class="overlay"></div>
     <div class="intro__text">
       <h1 class="intro__title">Приют для бездомных кошек</h1>
-      <app-button class="intro__btn">Взять котика</app-button>
+      <app-button class="intro__btn" @click="$router.push({ name: 'Find' })"
+        >Взять котика</app-button
+      >
     </div>
   </section>
 </template>
@@ -40,10 +42,10 @@ export default {
   justify-content: center;
   color: #fff;
   position: relative;
-  @media (max-width:$md1+px){
+  @media (max-width: $md1+px) {
     height: 400px;
   }
-  @media (max-width:$md2+px){
+  @media (max-width: $md2+px) {
     height: 250px;
     margin-bottom: 50px;
   }
@@ -55,7 +57,7 @@ export default {
       min-width: 100%;
       min-height: 100%;
     }
-    @media (max-width:$md4+px){
+    @media (max-width: $md4+px) {
       display: none;
     }
   }
@@ -74,7 +76,7 @@ export default {
     line-height: 57px;
     letter-spacing: 0.06em;
     color: #fff;
-    @media (max-width:$md3+px){
+    @media (max-width: $md3+px) {
       font-size: 30px;
       line-height: 40px;
       letter-spacing: 0.03em;

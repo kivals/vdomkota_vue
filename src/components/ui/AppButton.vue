@@ -1,5 +1,5 @@
 <template>
-  <a href="#" class="app-btn">
+  <a @click.prevent="$emit('click')" class="app-btn">
     <slot></slot>
   </a>
 </template>
@@ -12,6 +12,7 @@ export default {
 
 <style lang="scss" scoped>
 .app-btn {
+  cursor: pointer;
   display: block;
   text-transform: uppercase;
   color: #000;

@@ -3,6 +3,7 @@
     <div class="container">
       <VueSlickCarousel class="slider-cats" v-bind="slickOptions">
         <div
+          @click="$router.push({ name: 'Find' })"
           v-for="(item, index) in 10"
           :key="index"
           class="slider-cats__item cat-card"
