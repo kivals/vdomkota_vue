@@ -1,10 +1,12 @@
 <template>
-  <section class="help container">
-    <h2 class="help__title">Than you can help our shelter</h2>
-    <div class="help__body">
-      <div v-for="icon in icons" :key="icon.name" class="help__item help-item">
-        <app-icon class="help-item__img" :icon="icon.name"></app-icon>
-        <p class="help-item__description">{{icon.description}}</p>
+  <section class="help">
+    <div class="container">
+      <h2 class="help__title">Than you can help our shelter</h2>
+      <div class="help__body">
+        <div v-for="icon in icons" :key="icon.name" class="help__item help-item">
+          <app-icon class="help-item__img" :icon="icon.name"></app-icon>
+          <p class="help-item__description">{{icon.description}}</p>
+        </div>
       </div>
     </div>
   </section>
@@ -65,6 +67,7 @@ export default {
 
 <style lang="scss" scoped>
 .help {
+  background-color: $main-background-color;
   padding-top: 60px;
   &__title {
     max-width: 316px;

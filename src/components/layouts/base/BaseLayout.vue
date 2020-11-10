@@ -10,7 +10,7 @@
 
 <script>
 import AppHeader from '@/components/layouts/header/AppHeader';
-import AppFooter from '@/components/layouts/AppFooter';
+import AppFooter from '@/components/layouts/footer/AppFooter';
 
 export default {
   name: 'BaseLayout',

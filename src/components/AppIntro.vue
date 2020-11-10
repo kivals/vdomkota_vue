@@ -34,7 +34,6 @@ export default {
 
 <style lang="scss" scoped>
 .intro {
-  margin-bottom: 80px;
   text-align: center;
   height: 600px;
   display: flex;

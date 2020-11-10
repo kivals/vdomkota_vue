@@ -59,20 +59,20 @@ export default {
   &__photo {
     flex: 0 1 33.333%;
     height: 250px;
-    @media (max-width:$md1+px){
+    @media (max-width: $md1+px) {
       height: 200px;
     }
-    @media (max-width:$md2+px){
+    @media (max-width: $md2+px) {
       height: 150px;
     }
-    @media (max-width:$md3+px){
+    @media (max-width: $md3+px) {
       display: none;
     }
   }
-  @media (max-width:$md2+px){
+  @media (max-width: $md2+px) {
     padding-top: 55px;
   }
-  @media (max-width:$md3+px){
+  @media (max-width: $md3+px) {
     padding-top: 35px;
   }
 }
@@ -104,25 +104,24 @@ export default {
   letter-spacing: 0.06em;
   margin-bottom: 30px;
   color: #fff;
-  @media (max-width:$md1+px){
+  @media (max-width: $md1+px) {
     font-size: 25px;
     line-height: 35px;
     letter-spacing: 0.05em;
     margin-bottom: 20px;
   }
-  @media (max-width:$md2+px){
+  @media (max-width: $md2+px) {
     font-size: 20px;
     line-height: 30px;
     letter-spacing: 0.04em;
     margin-bottom: 15px;
   }
-  @media (max-width:$md3+px){
+  @media (max-width: $md3+px) {
     font-size: 15px;
     line-height: 18px;
     letter-spacing: 0.02em;
     margin-bottom: 10px;
   }
-
 }
 .footer-text {
   position: relative;
@@ -141,14 +140,14 @@ export default {
     left: 0;
     transform: translateY(-50%);
   }
-  @media (max-width:$md1+px){
+  @media (max-width: $md1+px) {
     font-size: 15px;
     line-height: 25px;
     letter-spacing: 0.04em;
     padding-left: 55px;
     margin-bottom: 25px;
   }
-  @media (max-width:$md2+px){
+  @media (max-width: $md2+px) {
     font-size: 10px;
     line-height: 15px;
     letter-spacing: 0.03em;

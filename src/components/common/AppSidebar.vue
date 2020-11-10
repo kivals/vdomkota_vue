@@ -1,10 +1,6 @@
 <template>
-  <div class="sidebar">
-    <div
-      class="sidebar-backdrop"
-      @click="closeSidebarPanel"
-      v-if="isNavOpen"
-    ></div>
+  <div class="sidebar" @click="closeSidebarPanel">
+    <div class="sidebar-backdrop" v-if="isNavOpen"></div>
     <transition name="slide">
       <div v-if="isNavOpen" class="sidebar-panel">
         <ul class="sidebar-panel-nav">

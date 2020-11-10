@@ -7,10 +7,10 @@
 </template>
 
 <script>
-import BaseLayout from '@/components/layouts/BaseLayout';
+import BaseLayout from '@/components/layouts/base/BaseLayout';
 import AdminLayout from '@/components/layouts/admin/AdminLayout';
 import AdminEmptyLayout from '@/components/layouts/admin/AdminEmptyLayout';
-import BaseEmptyLayout from '@/components/layouts/BaseEmptyLayout';
+import BaseEmptyLayout from '@/components/layouts/base/BaseEmptyLayout';
 
 export default {
   name: 'App',

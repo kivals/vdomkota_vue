@@ -1,25 +1,23 @@
 <template>
-  <section class="donation">
-    <div class="donation__body container">
-      <app-div-cover
-        class="donation__picture"
-        :imagePath="imagePath"
-      ></app-div-cover>
-      <div class="donation__description donation-description">
-        <h2 class="donation-description__title">
-          In addition, you can make a donation
-        </h2>
-        <p class="donation-description__bank">
-          Name of the bank / Type of bank account
-        </p>
-        <app-donation-card>8380 2880 8028 8791 7435</app-donation-card>
-        <p class="donation-description__text">
-          Legal information and lorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Maecenas a ipsum at libero sagittis dignissim sed ac
-          diam. Praesent ultrices maximus tortor et vulputate. Interdum et
-          malesuada fames ac ante ipsum primis in faucibus.
-        </p>
-      </div>
+  <section class="donation container">
+    <app-div-cover
+      class="donation__picture"
+      :imagePath="imagePath"
+    ></app-div-cover>
+    <div class="donation__description donation-description">
+      <h2 class="donation-description__title">
+        In addition, you can make a donation
+      </h2>
+      <p class="donation-description__bank">
+        Name of the bank / Type of bank account
+      </p>
+      <app-donation-card>8380 2880 8028 8791 7435</app-donation-card>
+      <p class="donation-description__text">
+        Legal information and lorem ipsum dolor sit amet, consectetur adipiscing
+        elit. Maecenas a ipsum at libero sagittis dignissim sed ac diam.
+        Praesent ultrices maximus tortor et vulputate. Interdum et malesuada
+        fames ac ante ipsum primis in faucibus.
+      </p>
     </div>
   </section>
 </template>
@@ -44,15 +42,13 @@ export default {
 
 <style lang="scss" scoped>
 .donation {
-  background-color: $main-background-color;
   padding: 75px 0;
-  &__body {
-    display: flex;
-    @media (max-width: $md2+px) {
-      flex-direction: column;
-      align-items: center;
-    }
+  display: flex;
+  @media (max-width: $md2+px) {
+    flex-direction: column;
+    align-items: center;
   }
+
   &__picture {
     width: 40%;
     min-height: 250px;
