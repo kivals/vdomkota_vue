@@ -2,7 +2,7 @@
   <section class="intro">
     <div class="intro__video">
       <video autoplay muted loop>
-        <source :src="videoPath" type="video/mp4" />
+        <source :src="videoUrl" type="video/mp4" />
         Your browser does not support HTML5 video.
       </video>
     </div>
@@ -36,12 +36,6 @@ export default {
   },
   components: {
     AppButton,
-  },
-  data() {
-    return {
-      videoPath:
-        'https://firebasestorage.googleapis.com/v0/b/vdomkota-6332e.appspot.com/o/videoplayback.mp4?alt=media&token=788629b9-5c7c-4500-aefe-54d665448238',
-    };
   },
 };
 </script>

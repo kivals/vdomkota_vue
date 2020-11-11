@@ -9,5 +9,5 @@ export default {
   },
   getters: {
     shelter: s => s.shelter,
-  }
+  },
 };

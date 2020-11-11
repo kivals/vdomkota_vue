@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <component :is="layout">
+    <component :is="layout" v-if="!loading">
       <router-view />
     </component>
   </div>
@@ -20,10 +20,21 @@ export default {
     AdminEmptyLayout,
     BaseEmptyLayout,
   },
+  data() {
+    return {
+      loading: true,
+    };
+  },
   computed: {
     layout() {
       return (this.$route.meta.layout || 'base') + '-layout';
     },
+  },
+  async mounted() {
+    await this.$store.dispatch('loadPageConfig');
+    this.loading = false;
+    console.log('LOADED');
+    console.log(this.$store.getters.mainPageConfig);
   },
 };
 </script>

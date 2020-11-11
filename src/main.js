@@ -3,8 +3,8 @@ import App from './App.vue';
 import router from './router';
 import Vuelidate from 'vuelidate/src';
 import firebase from 'firebase/app';
-import 'firebase/database';
 import 'firebase/auth';
+import 'firebase/firestore';
 import store from './store';
 
 import messagePlugin from '@/plugins/message.plugin';
@@ -25,6 +25,9 @@ firebase.initializeApp({
   messagingSenderId: '174606186449',
   appId: '1:174606186449:web:2c6b3bdf9c12f80294d2f0',
 });
+
+const db = firebase.firestore();
+Vue.$db = db;
 
 let app;
 firebase.auth().onAuthStateChanged(() => {

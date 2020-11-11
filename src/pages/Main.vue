@@ -70,6 +70,7 @@ export default {
   },
   mounted() {
     this.mainPageConfig = this.$store.getters.mainPageConfig;
+    console.log("GET");
     this.bank = this.$store.getters.bank;
     this.shelter = this.$store.getters.shelter;
   },
