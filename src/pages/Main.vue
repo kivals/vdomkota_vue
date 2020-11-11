@@ -1,10 +1,26 @@
 <template>
   <div>
-    <app-intro></app-intro>
+    <app-intro
+      :title="mainPageConfig.introText"
+      :videoUrl="mainPageConfig.introVideo"
+      :buttonText="mainPageConfig.introButtonText"
+    ></app-intro>
     <app-cats></app-cats>
-    <app-donation></app-donation>
+    <app-donation
+      :title="mainPageConfig.bankTitle"
+      :bankImg="mainPageConfig.bankCatImg"
+      :bankName="bank.bankName"
+      :bankInfo="bank.bankInfo"
+      :cardNumber="bank.cardNumber"
+      :accountType="bank.accountType"
+    >
+    </app-donation>
     <app-help></app-help>
-    <app-about></app-about>
+    <app-about
+      :shelterCatImg="mainPageConfig.shelterCatImg"
+      :shelterTitle="mainPageConfig.shelterTitle"
+      :shelterInfo="shelter.shelterInfo"
+    ></app-about>
   </div>
 </template>
 
@@ -23,6 +39,39 @@ export default {
     AppAbout,
     AppDonation,
     AppHelp,
+  },
+  data() {
+    return {
+      mainPageConfig: {
+        introText: '',
+        introVideo: '',
+        introButtonText: '',
+        bankCatImg: '',
+        shelterCatImg: '',
+        bankTitle: '',
+        helpTitle: '',
+        shelterTitle: '',
+        logo: '',
+        introImg: '',
+      },
+      bank: {
+        bankInfo: '',
+        bankName: '',
+        cardNumber: '',
+        accountType: '',
+      },
+      shelter: {
+        shelterAddress: '',
+        shelterEmail: '',
+        shelterInfo: '',
+        shelterPhone: '',
+      },
+    };
+  },
+  mounted() {
+    this.mainPageConfig = this.$store.getters.mainPageConfig;
+    this.bank = this.$store.getters.bank;
+    this.shelter = this.$store.getters.shelter;
   },
 };
 </script>

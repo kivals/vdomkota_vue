@@ -1,7 +1,7 @@
 <template>
   <section class="header">
     <div class="header__body container">
-      <app-logo></app-logo>
+      <app-logo :logo="mainPageConfig.logo"></app-logo>
       <app-mobile-nav v-if="isMobile" :menu="menu"></app-mobile-nav>
       <app-desktop-nav v-else :menu="menu"></app-desktop-nav>
     </div>
@@ -22,6 +22,9 @@ export default {
   },
   data() {
     return {
+      mainPageConfig: {
+        logo: '',
+      },
       menu: [
         { name: 'Home', title: 'Главная', to: '/', active: true },
         { name: 'SearchHosts', title: 'Ищем хозяев', to: '/find', active: false },
@@ -33,6 +36,7 @@ export default {
     };
   },
   created() {
+    this.mainPageConfig = this.$store.getters.mainPageConfig;
     this.isMobileHandler();
     window.addEventListener('resize', this.isMobileHandler);
   },

@@ -90,7 +90,7 @@ export default {
     font-size: 30px;
     border: 2px solid $main-color;
     border-radius: 50%;
-    @media (max-width:$md4+px){
+    @media (max-width: $md4+px) {
       top: auto;
       right: 10px;
       bottom: 10px;
@@ -98,15 +98,15 @@ export default {
   }
   &__img {
     flex: 1 0 40%;
-    @media (max-width:$md4+px){
+    @media (max-width: $md4+px) {
       width: 100%;
       height: 150px;
     }
   }
-  @media (max-width:$md3+px){
+  @media (max-width: $md3+px) {
     width: 100vw;
   }
-  @media (max-width:$md4+px){
+  @media (max-width: $md4+px) {
     display: block;
   }
 }
@@ -118,7 +118,7 @@ export default {
     letter-spacing: 0.06em;
     color: #545454;
     margin-bottom: 30px;
-    @media (max-width:$md2+px){
+    @media (max-width: $md2+px) {
       font-size: 28px;
       line-height: 33px;
       letter-spacing: 0.05em;
@@ -130,7 +130,7 @@ export default {
     line-height: 24px;
     color: #4c4c4c;
     margin-bottom: 30px;
-    @media (max-width:$md2+px){
+    @media (max-width: $md2+px) {
       font-size: 13px;
       line-height: 18px;
       margin-bottom: 18px;
@@ -140,20 +140,20 @@ export default {
     font-size: 15px;
     color: #545454;
     letter-spacing: 0.06em;
-    @media (max-width:$md2+px){
+    @media (max-width: $md2+px) {
       font-size: 14px;
       letter-spacing: 0.05em;
     }
     span {
       font-size: 17px;
       line-height: 34px;
-      @media (max-width:$md2+px){
+      @media (max-width: $md2+px) {
         font-size: 15px;
         line-height: 22px;
       }
     }
   }
-  @media (max-width:$md3+px){
+  @media (max-width: $md3+px) {
     padding: 20px 10px;
   }
 }

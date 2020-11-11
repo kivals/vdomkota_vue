@@ -1,21 +1,16 @@
 <template>
   <a href="#">
-    <img :src="imageUrl" alt="LOGO" />
+    <img :src="logo" alt="LOGO" />
   </a>
 </template>
 
 <script>
 export default {
   name: 'AppLogo',
-  data() {
-    return {
-      //TODO imgUrl должен получать от родителя
-      image: 'logo.jpg',
-    };
-  },
-  computed: {
-    imageUrl() {
-      return require(`@/assets/img/${this.image}`);
+  props: {
+    logo: {
+      type: String,
+      required: true,
     },
   },
 };

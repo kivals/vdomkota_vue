@@ -4,17 +4,21 @@
       <div class="footer__body">
         <div class="footer__contacts contacts">
           <h3 class="contacts__title footer-title">
-            For questions and suggestions
+            {{ mainPageConfig.footerTitleQuestions }}
           </h3>
-          <div class="contacts__email footer-text">email@shelter.com</div>
-          <div class="contacts__phone footer-text">+13 674 567 75 54</div>
+          <div class="contacts__email footer-text">
+            {{ shelter.shelterEmail }}
+          </div>
+          <div class="contacts__phone footer-text">
+            {{ shelter.shelterPhone }}
+          </div>
         </div>
         <div class="footer__location location">
           <h3 class="location__title footer-title">
-            We are waiting for your visit
+            {{ mainPageConfig.footerTitleVisit }}
           </h3>
           <div class="location__spot footer-text">
-            Boston, Central Street, 1st(Entrance from the store)
+            {{ shelter.shelterAddress }}
           </div>
         </div>
         <app-div-cover
@@ -36,8 +40,21 @@ export default {
   },
   data() {
     return {
+      mainPageConfig: {
+        footerTitleQuestions: '',
+        footerTitleVisit: '',
+      },
+      shelter: {
+        shelterAddress: '',
+        shelterEmail: '',
+        shelterPhone: '',
+      },
       imagePath: require('@/assets/img/footer/cat.jpg'),
     };
+  },
+  mounted() {
+    this.shelter = this.$store.getters.shelter;
+    this.mainPageConfig = this.$store.getters.mainPageConfig;
   },
 };
 </script>

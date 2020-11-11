@@ -2,22 +2,15 @@
   <section class="about container">
     <app-div-cover
       class="about__picture"
-      :imagePath="imagePath"
+      :imagePath="shelterCatImg"
     ></app-div-cover>
     <div class="about__info">
       <div class="about__title">
-        About the shelter “Cozy House”
+        {{ shelterTitle }}
       </div>
       <div class="about__text">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi
-          corporis dolorem dolores eaque facilis illo necessitatibus officia
-          perferendis quidem reiciendis?
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi
-          corporis dolorem dolores eaque facilis illo necessitatibus officia
-          perferendis quidem reiciendis?
+          {{ shelterInfo }}
         </p>
       </div>
     </div>
@@ -32,10 +25,19 @@ export default {
   components: {
     AppDivCover,
   },
-  data() {
-    return {
-      imagePath: require('@/assets/img/about/cat-about.jpg'),
-    };
+  props: {
+    shelterCatImg: {
+      type: String,
+      required: true,
+    },
+    shelterTitle: {
+      type: String,
+      required: true,
+    },
+    shelterInfo: {
+      type: String,
+      required: true,
+    },
   },
 };
 </script>

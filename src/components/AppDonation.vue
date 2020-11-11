@@ -2,21 +2,18 @@
   <section class="donation container">
     <app-div-cover
       class="donation__picture"
-      :imagePath="imagePath"
+      :imagePath="bankImg"
     ></app-div-cover>
     <div class="donation__description donation-description">
       <h2 class="donation-description__title">
-        In addition, you can make a donation
+        {{ title }}
       </h2>
       <p class="donation-description__bank">
-        Name of the bank / Type of bank account
+        {{ bankName }} / {{ accountType }}
       </p>
       <app-donation-card>8380 2880 8028 8791 7435</app-donation-card>
       <p class="donation-description__text">
-        Legal information and lorem ipsum dolor sit amet, consectetur adipiscing
-        elit. Maecenas a ipsum at libero sagittis dignissim sed ac diam.
-        Praesent ultrices maximus tortor et vulputate. Interdum et malesuada
-        fames ac ante ipsum primis in faucibus.
+        {{ bankInfo }}
       </p>
     </div>
   </section>
@@ -32,10 +29,29 @@ export default {
     AppDivCover,
     AppDonationCard,
   },
-  data() {
-    return {
-      imagePath: require('@/assets/img/donation/cat.jpg'),
-    };
+  props: {
+    title: {
+      type: String,
+      required: true,
+    },
+    bankImg: {
+      type: String,
+      required: true,
+    },
+    bankName: {
+      type: String,
+      required: true,
+    },
+    cardNumber: {
+      type: String,
+      required: true,
+    },
+    accountType: {
+      type: String,
+    },
+    bankInfo: {
+      type: String,
+    },
   },
 };
 </script>

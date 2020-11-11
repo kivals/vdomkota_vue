@@ -8,10 +8,10 @@
     </div>
     <div class="overlay"></div>
     <div class="intro__text">
-      <h1 class="intro__title">Приют для бездомных кошек</h1>
-      <app-button class="intro__btn" @click="$router.push({ name: 'Find' })"
-        >Взять котика</app-button
-      >
+      <h1 class="intro__title">{{ title }}</h1>
+      <app-button class="intro__btn" @click="$router.push({ name: 'Find' })">
+        {{ buttonText }}
+      </app-button>
     </div>
   </section>
 </template>
@@ -21,12 +21,26 @@ import AppButton from '@/components/ui/AppButton';
 
 export default {
   name: 'AppIntro',
+  props: {
+    title: {
+      type: String,
+      required: true,
+    },
+    videoUrl: {
+      type: String,
+    },
+    buttonText: {
+      type: String,
+      required: true,
+    },
+  },
   components: {
     AppButton,
   },
   data() {
     return {
-      videoPath: require('@/assets/video/videoplayback.mp4'),
+      videoPath:
+        'https://firebasestorage.googleapis.com/v0/b/vdomkota-6332e.appspot.com/o/videoplayback.mp4?alt=media&token=788629b9-5c7c-4500-aefe-54d665448238',
     };
   },
 };
