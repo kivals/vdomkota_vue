@@ -31,10 +31,9 @@ export default {
     },
   },
   async mounted() {
-    await this.$store.dispatch('loadPageConfig');
+    await this.$store.dispatch('loadMainPageConfig');
+    await this.$store.dispatch('loadFindPageConfig');
     this.loading = false;
-    console.log('LOADED');
-    console.log(this.$store.getters.mainPageConfig);
   },
 };
 </script>

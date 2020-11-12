@@ -1,11 +1,15 @@
 <template>
   <section class="help">
     <div class="container">
-      <h2 class="help__title">Than you can help our shelter</h2>
+      <h2 class="help__title">{{ title }}</h2>
       <div class="help__body">
-        <div v-for="icon in icons" :key="icon.name" class="help__item help-item">
+        <div
+          v-for="icon in icons"
+          :key="icon.name"
+          class="help__item help-item"
+        >
           <app-icon class="help-item__img" :icon="icon.name"></app-icon>
-          <p class="help-item__description">{{icon.description}}</p>
+          <p class="help-item__description">{{ icon.description }}</p>
         </div>
       </div>
     </div>
@@ -19,6 +23,12 @@ export default {
   name: 'AppHelp',
   components: {
     AppIcon,
+  },
+  props: {
+    title: {
+      type: String,
+      required: true,
+    },
   },
   data() {
     return {
@@ -121,7 +131,6 @@ export default {
     @media (max-width: $md4+px) {
       margin-bottom: 20px;
     }
-
   }
   @media (max-width: $md2+px) {
     padding: 40px 0;

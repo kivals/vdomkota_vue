@@ -15,7 +15,7 @@
       :accountType="bank.accountType"
     >
     </app-donation>
-    <app-help></app-help>
+    <app-help :title="mainPageConfig.helpTitle"></app-help>
     <app-about
       :shelterCatImg="mainPageConfig.shelterCatImg"
       :shelterTitle="mainPageConfig.shelterTitle"
@@ -70,7 +70,6 @@ export default {
   },
   mounted() {
     this.mainPageConfig = this.$store.getters.mainPageConfig;
-    console.log("GET");
     this.bank = this.$store.getters.bank;
     this.shelter = this.$store.getters.shelter;
   },

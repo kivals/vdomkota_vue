@@ -1,10 +1,8 @@
 <template>
   <div class="find-page">
-    <app-popup v-if="isCatPopupVisible" @closePopup="closePopup">
-      sadfsadfasdfsadf
-    </app-popup>
+    <app-popup v-if="isCatPopupVisible" @closePopup="closePopup"> </app-popup>
     <div class="container">
-      <p class="find-page__title">Our friends who are looking for a house</p>
+      <p class="find-page__title">{{ findPageConfig.title }}</p>
       <div class="find-page__cats">
         <div
           v-for="(image, idx) in images"
@@ -42,6 +40,9 @@ export default {
   },
   data() {
     return {
+      findPageConfig: {
+        title: '',
+      },
       images: [
         require('@/assets/img/cats_slider/5.jpg'),
         require('@/assets/img/cats_slider/6.jpg'),
@@ -51,6 +52,9 @@ export default {
       ],
       isCatPopupVisible: false,
     };
+  },
+  async mounted() {
+    this.findPageConfig = this.$store.getters.findPageConfig;
   },
   methods: {
     showCatPopup() {
@@ -138,7 +142,6 @@ export default {
       height: 200px;
       margin-bottom: 20px;
     }
-
   }
   &__title {
     text-align: center;

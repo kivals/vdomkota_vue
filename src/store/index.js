@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 
 import user from './user';
 import mainPageConfig from './main-page-config';
+import findPageConfig from './find-page-config';
 import bankInfo from './bank-info';
 import shelterInfo from './shelter';
 
@@ -26,6 +27,7 @@ export default new Vuex.Store({
   modules: {
     user,
     mainPageConfig,
+    findPageConfig,
     bankInfo,
     shelterInfo,
   },
