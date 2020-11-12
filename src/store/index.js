@@ -6,6 +6,7 @@ import mainPageConfig from './main-page-config';
 import findPageConfig from './find-page-config';
 import bankInfo from './bank-info';
 import shelterInfo from './shelter';
+import cats from '@/store/cats';
 
 Vue.use(Vuex);
 
@@ -26,6 +27,7 @@ export default new Vuex.Store({
   },
   modules: {
     user,
+    cats,
     mainPageConfig,
     findPageConfig,
     bankInfo,

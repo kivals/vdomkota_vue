@@ -21,4 +21,13 @@ export class FirestoreCollection {
     }
     return data;
   }
+
+  async getAllDocsRequest() {
+    let cats = [];
+    const querySnapshot = await this._ref.get();
+    querySnapshot.forEach(function(doc) {
+      cats.push(doc.data());
+    });
+    return cats;
+  }
 }

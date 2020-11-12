@@ -31,6 +31,7 @@ export default {
     },
   },
   async mounted() {
+    await this.$store.dispatch('loadCats');
     await this.$store.dispatch('loadMainPageConfig');
     await this.$store.dispatch('loadFindPageConfig');
     this.loading = false;
