@@ -43,3 +43,14 @@ $font_path: '~@/assets/fonts/';
   font-weight: 900;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "dashboard";
+  src:url($font_path + "dashboard.eot");
+  src:url($font_path + "dashboard.eot?#iefix") format("embedded-opentype"),
+  url($font_path + "dashboard.woff") format("woff"),
+  url($font_path + "dashboard.ttf") format("truetype"),
+  url($font_path + "dashboard.svg#dashboard") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}

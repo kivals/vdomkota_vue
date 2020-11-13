@@ -6,15 +6,22 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 import store from './store';
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
 
 import messagePlugin from '@/plugins/message.plugin';
-import 'materialize-css/dist/js/materialize.min';
+//import 'materialize-css/dist/js/materialize.min';
 
 Vue.config.productionTip = false;
 
 /* Plugins */
 Vue.use(Vuelidate);
 Vue.use(messagePlugin);
+// Install BootstrapVue
+Vue.use(BootstrapVue);
+// Optionally install the BootstrapVue icon components plugin
+Vue.use(IconsPlugin);
 
 firebase.initializeApp({
   apiKey: 'AIzaSyCKNd2ou0_Xuoqri2T83Xw14hr4T5wiK_g',

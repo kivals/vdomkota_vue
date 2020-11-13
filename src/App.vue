@@ -40,5 +40,6 @@ export default {
 </script>
 <style lang="scss">
 @import '@/assets/sass/common/style.scss';
-@import '~materialize-css/dist/css/materialize.min.css';
+
+//@import '~materialize-css/dist/css/materialize.min.css';
 </style>
