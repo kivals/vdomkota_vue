@@ -90,13 +90,19 @@
               class="navbar-holder d-flex align-items-center justify-content-between"
             >
               <div class="navbar-header">
-                <a id="toggle-btn" @click.prevent="toggleBtnClick" href="#" class="menu-btn"
-                  ><i class="icon-bars"> </i></a
-                ><a href="index.html" class="navbar-brand">
+                <a
+                  id="toggle-btn"
+                  v-if="showToggleBtn"
+                  @click.prevent="toggleBtnClick"
+                  href="#"
+                  class="menu-btn"
+                  ><i class="icon-bars"> </i></a>
+
+                <a href="index.html" class="navbar-brand">
                   <div class="brand-text d-none d-md-inline-block">
                     <strong class="text-primary">В ДОМ КОТА</strong>
-                  </div></a
-                >
+                  </div>
+                </a>
               </div>
               <ul
                 class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center"

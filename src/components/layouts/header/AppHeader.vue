@@ -2,7 +2,7 @@
   <section class="header">
     <div class="header__body container">
       <app-logo :logo="mainPageConfig.logo"></app-logo>
-      <app-mobile-nav v-if="isMobile" :menu="menu"></app-mobile-nav>
+      <app-mobile-nav v-if="isMobileView" :menu="menu"></app-mobile-nav>
       <app-desktop-nav v-else :menu="menu"></app-desktop-nav>
     </div>
   </section>
@@ -12,8 +12,7 @@
 import AppLogo from '@/components/layouts/header/AppLogo';
 import AppDesktopNav from '@/components/layouts/header/AppDesktopNav';
 import AppMobileNav from '@/components/layouts/header/AppMobileNav';
-//TODO вынести в store
-const MOBILE_WIDTH = 680;
+
 export default {
   name: 'AppHeader',
   components: {
@@ -33,22 +32,17 @@ export default {
         { name: 'Details', title: 'Реквизиты', to: '/', active: false },
         { name: 'About', title: 'О нас', to: '/', active: false },
       ],
-      isMobile: false,
     };
   },
   created() {
     this.mainPageConfig = this.$store.getters.mainPageConfig;
-    this.isMobileHandler();
-    window.addEventListener('resize', this.isMobileHandler);
+    //this.isMobileView = this.$store.getters.isMobileView;
   },
-  destroyed() {
-    window.removeEventListener('resize', this.isMobileHandler);
-  },
-  methods: {
-    isMobileHandler() {
-      this.isMobile = window.outerWidth < MOBILE_WIDTH || false;
+  computed: {
+    isMobileView() {
+      return this.$store.getters.isMobileView;
     },
-  },
+  }
 };
 </script>
 

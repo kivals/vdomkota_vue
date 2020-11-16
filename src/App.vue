@@ -12,6 +12,7 @@ import AdminLayout from '@/components/layouts/admin/AdminLayout';
 import AdminEmptyLayout from '@/components/layouts/admin/AdminEmptyLayout';
 import BaseEmptyLayout from '@/components/layouts/base/BaseEmptyLayout';
 
+const MOBILE_WIDTH = 768;
 export default {
   name: 'App',
   components: {
@@ -30,11 +31,32 @@ export default {
       return (this.$route.meta.layout || 'base') + '-layout';
     },
   },
+  // created() {
+  //   this.mainPageConfig = this.$store.getters.mainPageConfig;
+  //   this.isMobileHandler();
+  //   window.addEventListener('resize', this.isMobileHandler);
+  // },
+  // destroyed() {
+  //   window.removeEventListener('resize', this.isMobileHandler);
+  // },
   async mounted() {
+    this.isMobileHandler();
+    window.addEventListener('resize', this.isMobileHandler);
     await this.$store.dispatch('loadCats');
     await this.$store.dispatch('loadMainPageConfig');
     await this.$store.dispatch('loadFindPageConfig');
     this.loading = false;
+  },
+  destroyed() {
+    window.removeEventListener('resize', this.isMobileHandler);
+  },
+  methods: {
+    isMobileHandler() {
+      console.log(window.outerWidth);
+      window.outerWidth < MOBILE_WIDTH
+        ? this.$store.commit('setMobileView', true)
+        : this.$store.commit('setMobileView', false);
+    },
   },
 };
 </script>
