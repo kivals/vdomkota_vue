@@ -1,7 +1,7 @@
 <template>
   <div class="admin">
     <!-- Side Navbar -->
-    <nav class="side-navbar">
+    <nav class="side-navbar show">
       <div class="side-navbar-wrapper">
         <!-- Sidebar Header    -->
         <div
@@ -64,13 +64,15 @@
           <h5 class="sidenav-heading">Контент сайта</h5>
           <ul id="side-admin-menu" class="side-menu list-unstyled">
             <li>
-              <a href="#"><b-icon icon="dot"></b-icon>Котики</a>
+              <a href="#"><b-icon icon="journals"></b-icon>Котики</a>
             </li>
             <li>
               <a href="#"><b-icon icon="list-ol"></b-icon>Список статей </a>
             </li>
             <li>
-              <a href=""><b-icon icon="info-circle"></b-icon>Банковские данные</a>
+              <a href=""
+                ><b-icon icon="info-circle"></b-icon>Банковские данные</a
+              >
             </li>
             <li>
               <a href=""><b-icon icon="house"></b-icon>Приют</a>
@@ -88,7 +90,7 @@
               class="navbar-holder d-flex align-items-center justify-content-between"
             >
               <div class="navbar-header">
-                <a id="toggle-btn" href="#" class="menu-btn"
+                <a id="toggle-btn" @click.prevent="toggleBtnClick" href="#" class="menu-btn"
                   ><i class="icon-bars"> </i></a
                 ><a href="index.html" class="navbar-brand">
                   <div class="brand-text d-none d-md-inline-block">
@@ -120,8 +122,14 @@ export default {
   name: 'AdminLayout',
   data() {
     return {
+      sideNavShow: true,
       isOpen: true,
     };
+  },
+  methods: {
+    toggleBtnClick() {
+      this.sideNavShow = !this.sideNavShow;
+    },
   },
 };
 </script>
