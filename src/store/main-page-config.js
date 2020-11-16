@@ -29,6 +29,7 @@ export default {
             shelterTitle: mainPage.shelterTitle,
             footerTitleQuestions: mainPage.footerTitleQuestions,
             footerTitleVisit: mainPage.footerTitleVisit,
+            menu: mainPage.menu,
           };
           commit('setMainPageConfig', mainPageConfig);
         }
