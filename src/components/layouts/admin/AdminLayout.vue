@@ -29,10 +29,10 @@
           <h5 class="sidenav-heading">Страницы</h5>
           <ul id="side-main-menu" class="side-menu list-unstyled">
             <li>
-              <a href="index.html">
+              <router-link to="/admin">
                 <b-icon icon="house-door"></b-icon>
                 Главная
-              </a>
+              </router-link>
             </li>
             <li>
               <a href="forms.html">
@@ -119,6 +119,9 @@
           </div>
         </nav>
       </header>
+      <main>
+        <router-view></router-view>
+      </main>
     </div>
   </div>
 </template>

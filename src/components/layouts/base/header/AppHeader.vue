@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import AppLogo from '@/components/layouts/header/AppLogo';
-import AppDesktopNav from '@/components/layouts/header/AppDesktopNav';
-import AppMobileNav from '@/components/layouts/header/AppMobileNav';
+import AppLogo from '@/components/layouts/base/header/AppLogo';
+import AppDesktopNav from '@/components/layouts/base/header/AppDesktopNav';
+import AppMobileNav from '@/components/layouts/base/header/AppMobileNav';
 
 export default {
   name: 'AppHeader',
