@@ -58,9 +58,9 @@ export default {
       const fsMenu = this.mainPageConfig.menu;
       let mergedMenu = [];
       fsMenu.forEach(fsMenuItem => {
-        let appMenuItem = this.appMenu.filter(m => {
-          return m.name === fsMenuItem.menuKey;
-        });
+        let appMenuItem = this.appMenu.filter(
+          m => m.name === fsMenuItem.menuKey,
+        );
         if (appMenuItem.length === 1) {
           const item = {
             name: appMenuItem[0].name,
