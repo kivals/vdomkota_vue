@@ -6,18 +6,7 @@
     <b-row>
       <!-- ЛОГО -->
       <b-col cols="2">
-        <b-card>
-          <template #header>
-            <h6 class="mb-0">Логотип сайта</h6>
-          </template>
-          <AppLogo :logo="logo"></AppLogo>
-          <template #footer>
-            <b-button variant="primary">
-              <b-icon icon="cloud-arrow-up" aria-hidden="true"></b-icon> Сменить
-              лого
-            </b-button>
-          </template>
-        </b-card>
+        <LogoEdit :currentLogo="logo"></LogoEdit>
       </b-col>
       <!-- МЕНЮ -->
       <b-col cols="4">
@@ -62,13 +51,13 @@
 </template>
 
 <script>
-import AppLogo from '@/components/layouts/base/header/AppLogo';
+import LogoEdit from '@/components/admin/LogoEdit';
 import cloneDeep from 'lodash/cloneDeep';
 
 export default {
   name: 'HeaderSection',
   components: {
-    AppLogo,
+    LogoEdit,
   },
   props: {
     menu: {
@@ -83,11 +72,15 @@ export default {
     return {
       localMenu: cloneDeep(this.menu),
       isEdit: false,
+      logoFile: null,
     };
   },
   computed: {
     buttonText() {
       return this.isEdit ? 'Сохранить' : 'Редактировать';
+    },
+    logoUrl() {
+      return URL.createObjectURL(this.logoFile);
     },
   },
   methods: {

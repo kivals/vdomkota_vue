@@ -5,8 +5,11 @@ export default {
     mainPageConfig: {},
   },
   mutations: {
-    setMainPageConfig(state, payload) {
-      state.mainPageConfig = payload;
+    setMainPageConfig(state, config) {
+      state.mainPageConfig = config;
+    },
+    setMenuConfig(state, menu) {
+      state.mainPageConfig.menu = menu;
     },
   },
   actions: {
@@ -17,13 +20,13 @@ export default {
         const mainPage = await pageConfigCollection.getDocRequest('mainPage');
         if (mainPage) {
           mainPageConfig = {
-            logo: mainPage.logoUrl,
+            logo: mainPage.logo,
             introText: mainPage.introText,
             introButtonText: mainPage.introButtonText,
-            introVideo: mainPage.introVideoUrl,
-            introImg: mainPage.introImgUrl,
-            shelterCatImg: mainPage.shelterCatImgUrl,
-            bankCatImg: mainPage.bankCatImgUrl,
+            introVideo: mainPage.introVideo,
+            introImg: mainPage.introImg,
+            shelterCatImg: mainPage.shelterCatImg,
+            bankCatImg: mainPage.bankCatImg,
             bankTitle: mainPage.bankTitle,
             helpTitle: mainPage.helpTitle,
             shelterTitle: mainPage.shelterTitle,
@@ -33,6 +36,19 @@ export default {
           };
           commit('setMainPageConfig', mainPageConfig);
         }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    //TODO Сделать вывод пользователю сообщения об успехе или нет
+    async updateMainPageConfig({ state }) {
+      try {
+        //TODO дублируется
+        const pageConfigCollection = new FirestoreCollection('PageConfig');
+        await pageConfigCollection.saveDocRequest(
+          'mainPage',
+          state.mainPageConfig,
+        );
       } catch (error) {
         console.log(error);
       }

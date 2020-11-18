@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import HeaderSection from '@/components/ui/admin/HeaderSection';
+import HeaderSection from '@/components/admin/HeaderSection';
 
 export default {
   name: 'AdminMainInfo',
@@ -27,7 +27,9 @@ export default {
   },
   methods: {
     saveMenu($event) {
-      this.mainPageConfig.menu = $event;
+      //this.mainPageConfig.menu = $event;
+      this.$store.commit('setMenuConfig', $event);
+      this.$store.dispatch('updateMainPageConfig');
     },
   },
 };

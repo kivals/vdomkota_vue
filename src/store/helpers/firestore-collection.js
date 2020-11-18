@@ -22,12 +22,21 @@ export class FirestoreCollection {
     return data;
   }
 
+  /**
+   * Вернуть все документы из коллекции
+   * @returns набор документов
+   */
   async getAllDocsRequest() {
-    let cats = [];
+    let docs = [];
     const querySnapshot = await this._ref.get();
     querySnapshot.forEach(function(doc) {
-      cats.push(doc.data());
+      docs.push(doc.data());
     });
-    return cats;
+    return docs;
+  }
+
+  async saveDocRequest(docName, payload) {
+    const docRef = this._ref.doc(docName);
+    await docRef.set(payload);
   }
 }
