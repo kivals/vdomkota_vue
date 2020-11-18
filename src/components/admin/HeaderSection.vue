@@ -5,7 +5,7 @@
     </template>
     <b-row>
       <!-- ЛОГО -->
-      <b-col cols="2">
+      <b-col cols="4">
         <LogoEdit :currentLogo="logo"></LogoEdit>
       </b-col>
       <!-- МЕНЮ -->

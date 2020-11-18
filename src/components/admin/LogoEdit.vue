@@ -1,18 +1,20 @@
 <template>
-  <b-card>
+  <b-card sub-title="Размер 150px на 150px">
     <template #header>
       <h6 class="mb-0">Логотип сайта</h6>
     </template>
-    <AppLogo :logo="currentLogo"></AppLogo>
+    <AppLogo :logo="logoUrl"></AppLogo>
     <b-form-file
-      v-model="logoFile"
-      :state="Boolean(logoFile)"
-      placeholder="Choose a file or drop it here..."
+      v-if="this.isEdit"
+      accept=".jpg, .png, .gif"
+      v-model="customFile"
+      :state="Boolean(customFile)"
+      placeholder="Выберете картинку или перенесите сюда..."
       drop-placeholder="Drop file here..."
     ></b-form-file>
     <template #footer>
-      <b-button variant="primary">
-        <b-icon icon="cloud-arrow-up" aria-hidden="true"></b-icon> Сменить лого
+      <b-button variant="primary" @click="changeLogo">
+        <b-icon icon="cloud-arrow-up" aria-hidden="true"></b-icon> {{ buttonText }}
       </b-button>
     </template>
   </b-card>
@@ -34,18 +36,24 @@ export default {
   data() {
     return {
       isEdit: false,
-      logoFile: null,
+      customFile: null,
     };
   },
   computed: {
     buttonText() {
-      return this.isEdit ? 'Сохранить' : 'Редактировать';
+      return this.isEdit ? 'Сохранить новый логотип' : 'Сменить логотип';
     },
     logoUrl() {
-      return URL.createObjectURL(this.logoFile);
+      if (!this.isEdit || !this.customFile) {
+        return this.currentLogo;
+      }
+      return URL.createObjectURL(this.customFile);
+    },
+  },
+  methods: {
+    changeLogo() {
+      this.isEdit = !this.isEdit;
     },
   },
 };
 </script>
-
-<style scoped></style>

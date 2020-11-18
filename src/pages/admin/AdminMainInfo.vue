@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-row>
-      <b-col cols="7" class="">
+      <b-col cols="12" class="">
         <HeaderSection
           :menu="mainPageConfig.menu"
           :logo="mainPageConfig.logo"
