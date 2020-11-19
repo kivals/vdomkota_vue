@@ -5,6 +5,7 @@ import Vuelidate from 'vuelidate/src';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
+import 'firebase/storage';
 import store from './store';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -34,7 +35,10 @@ firebase.initializeApp({
 });
 
 const db = firebase.firestore();
+const storage = firebase.storage();
 Vue.$db = db;
+console.log('set');
+Vue.$storage = storage;
 
 let app;
 firebase.auth().onAuthStateChanged(() => {

@@ -3,18 +3,32 @@
     <template #header>
       <h6 class="mb-0">Логотип сайта</h6>
     </template>
-    <AppLogo :logo="logoUrl"></AppLogo>
+    <AppLogo v-if="!uploading" :logo="logoUrl"></AppLogo>
     <b-form-file
-      v-if="this.isEdit"
+      v-if="isEdit && !uploading"
       accept=".jpg, .png, .gif"
-      v-model="customFile"
-      :state="Boolean(customFile)"
+      v-model="chooseFile"
+      :state="Boolean(chooseFile)"
       placeholder="Выберете картинку или перенесите сюда..."
-      drop-placeholder="Drop file here..."
+      drop-placeholder="Перетащите сюда..."
     ></b-form-file>
+    <b-progress
+      v-if="uploading"
+      :value="uploadPercent"
+      max="100"
+      variant="success"
+      show-progress
+      striped
+      animated
+    ></b-progress>
     <template #footer>
-      <b-button variant="primary" @click="changeLogo">
-        <b-icon icon="cloud-arrow-up" aria-hidden="true"></b-icon> {{ buttonText }}
+      <b-button
+        :disabled="uploading"
+        :variant="isEdit ? 'success' : 'primary'"
+        @click="changeLogo"
+      >
+        <b-icon icon="cloud-arrow-up" aria-hidden="true"></b-icon>
+        {{ buttonText }}
       </b-button>
     </template>
   </b-card>
@@ -36,23 +50,47 @@ export default {
   data() {
     return {
       isEdit: false,
-      customFile: null,
+      chooseFile: null,
     };
   },
   computed: {
+    uploadPercent() {
+      return this.$store.getters.uploadPercent;
+    },
     buttonText() {
-      return this.isEdit ? 'Сохранить новый логотип' : 'Сменить логотип';
+      return this.isEdit ? 'Сохранить' : 'Изменить логотип';
     },
     logoUrl() {
-      if (!this.isEdit || !this.customFile) {
+      if (!this.isEdit || !this.chooseFile) {
         return this.currentLogo;
       }
-      return URL.createObjectURL(this.customFile);
+      return URL.createObjectURL(this.chooseFile);
+    },
+    uploading() {
+      return this.$store.getters.uploading;
     },
   },
   methods: {
     changeLogo() {
+      //Файл не выбран, сохранять нечего
+      if (!this.chooseFile && this.isEdit) {
+        return;
+      }
+      if (this.isEdit && !this.uploading) {
+        this.$store.dispatch('updateLogo', this.chooseFile);
+        return;
+      }
       this.isEdit = !this.isEdit;
+      this.$store.commit('setUploadPercent', 0);
+      this.chooseFile = null;
+    },
+  },
+  watch: {
+    //Дожидаемся полной загругки и выходим из режима Edit
+    uploadPercent: function(newValue) {
+      if (newValue === 100) {
+        this.isEdit = false;
+      }
     },
   },
 };
