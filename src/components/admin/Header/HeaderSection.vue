@@ -5,11 +5,14 @@
     </template>
     <b-row>
       <!-- ЛОГО -->
-      <b-col cols="4">
-        <LogoEdit :currentLogo="logo"></LogoEdit>
+      <b-col cols="12" md="6">
+        <LogoEdit
+          @saveLogo="$emit('saveLogo', $event)"
+          :currentLogo="logo"
+        ></LogoEdit>
       </b-col>
       <!-- МЕНЮ -->
-      <b-col cols="4">
+      <b-col cols="12" md="6">
         <MenuSection
           @saveMenu="$emit('saveMenu', $event)"
           :menu="menu"
@@ -20,8 +23,8 @@
 </template>
 
 <script>
-import LogoEdit from '@/components/admin/LogoEdit';
-import MenuSection from '@/components/admin/MenuSection';
+import LogoEdit from '@/components/admin/Header/LogoEdit';
+import MenuSection from '@/components/admin/Header/MenuSection';
 
 export default {
   name: 'HeaderSection',

@@ -1,24 +1,32 @@
 <template>
-  <div>
+  <b-container fluid="">
     <b-row>
-      <b-col cols="12" class="">
+      <b-col cols="12" xl="8">
         <HeaderSection
           :menu="mainPageConfig.menu"
           :logo="mainPageConfig.logo"
           @saveMenu="saveMenu"
+          @saveLogo="saveLogo"
         ></HeaderSection>
       </b-col>
     </b-row>
-  </div>
+    <b-row>
+      <b-col cols="12" xl="8">
+        <IntroSection></IntroSection>
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
-import HeaderSection from '@/components/admin/HeaderSection';
+import HeaderSection from '@/components/admin/Header/HeaderSection';
+import IntroSection from '@/components/admin/Intro/IntroSection';
 
 export default {
   name: 'AdminMainInfo',
   components: {
     HeaderSection,
+    IntroSection,
   },
   data() {
     return {
@@ -30,6 +38,9 @@ export default {
       //this.mainPageConfig.menu = $event;
       this.$store.commit('setMenuConfig', $event);
       this.$store.dispatch('updateMainPageConfig');
+    },
+    saveLogo($event) {
+      this.$store.dispatch('updateLogo', $event);
     },
   },
 };

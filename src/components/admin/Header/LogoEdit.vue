@@ -78,7 +78,8 @@ export default {
         return;
       }
       if (this.isEdit && !this.uploading) {
-        this.$store.dispatch('updateLogo', this.chooseFile);
+        //this.$store.dispatch('updateLogo', this.chooseFile);
+        this.$emit('saveLogo', this.chooseFile);
         return;
       }
       this.isEdit = !this.isEdit;
