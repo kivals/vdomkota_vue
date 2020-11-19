@@ -10,41 +10,10 @@
       </b-col>
       <!-- МЕНЮ -->
       <b-col cols="4">
-        <b-card>
-          <template #header>
-            <h6 class="mb-0">Навигационное меню</h6>
-          </template>
-          <b-list-group v-if="!isEdit">
-            <b-list-group-item
-              v-for="menuItem in localMenu"
-              :key="menuItem.menukey"
-              :disabled="!menuItem.visible"
-            >
-              {{ menuItem.name }}
-            </b-list-group-item>
-          </b-list-group>
-          <b-list-group v-else>
-            <b-list-group-item v-for="menuItem in localMenu" :key="menuItem.menuKey">
-              <b-form-input
-                v-model="menuItem.name"
-                placeholder="Enter your name"
-              ></b-form-input>
-              <b-form-checkbox
-                v-model="menuItem.visible"
-                name="check-button"
-                switch
-              >
-                Показывать: <b>{{ menuItem.visible ? 'ДА' : 'НЕТ' }}</b>
-              </b-form-checkbox>
-            </b-list-group-item>
-          </b-list-group>
-          <template #footer>
-            <b-button variant="primary" @click="saveMenu">
-              <b-icon icon="gear-fill" aria-hidden="true"></b-icon>
-              {{ buttonText }}
-            </b-button>
-          </template>
-        </b-card>
+        <MenuSection
+          @saveMenu="$emit('saveMenu', $event)"
+          :menu="menu"
+        ></MenuSection>
       </b-col>
     </b-row>
   </b-card>
@@ -52,12 +21,13 @@
 
 <script>
 import LogoEdit from '@/components/admin/LogoEdit';
-import cloneDeep from 'lodash/cloneDeep';
+import MenuSection from '@/components/admin/MenuSection';
 
 export default {
   name: 'HeaderSection',
   components: {
     LogoEdit,
+    MenuSection,
   },
   props: {
     menu: {
@@ -66,30 +36,6 @@ export default {
     },
     logo: {
       type: String,
-    },
-  },
-  data() {
-    return {
-      localMenu: cloneDeep(this.menu),
-      isEdit: false,
-      logoFile: null,
-    };
-  },
-  computed: {
-    buttonText() {
-      return this.isEdit ? 'Сохранить' : 'Редактировать';
-    },
-    logoUrl() {
-      return URL.createObjectURL(this.logoFile);
-    },
-  },
-  methods: {
-    saveMenu() {
-      this.isEdit = !this.isEdit;
-      if (!this.isEdit) {
-        //Делаем копию, на всякий случай, если родитель решить мутировать localMenu
-        this.$emit('saveMenu', cloneDeep(this.localMenu));
-      }
     },
   },
 };

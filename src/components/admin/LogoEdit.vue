@@ -3,13 +3,14 @@
     <template #header>
       <h6 class="mb-0">Логотип сайта</h6>
     </template>
-    <AppLogo v-if="!uploading" :logo="logoUrl"></AppLogo>
+    <div class="d-flex justify-content-center">
+      <AppLogo v-if="!uploading" :logo="logoUrl"></AppLogo></div>
     <b-form-file
       v-if="isEdit && !uploading"
       accept=".jpg, .png, .gif"
       v-model="chooseFile"
       :state="Boolean(chooseFile)"
-      placeholder="Выберете картинку или перенесите сюда..."
+      placeholder="Выберете картинку..."
       drop-placeholder="Перетащите сюда..."
     ></b-form-file>
     <b-progress
