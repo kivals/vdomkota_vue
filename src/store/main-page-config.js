@@ -25,6 +25,9 @@ export default {
     setUploading(state, value) {
       state.uploading = value;
     },
+    setIntroVideo(state, value) {
+      state.mainPageConfig.introVideo = value;
+    },
   },
   actions: {
     async loadMainPageConfig({ commit }) {

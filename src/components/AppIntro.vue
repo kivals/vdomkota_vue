@@ -6,7 +6,7 @@
         Your browser does not support HTML5 video.
       </video>
     </div>
-    <div class="overlay"></div>
+    <div class="video-overlay"></div>
     <div class="intro__text">
       <h1 class="intro__title">{{ title }}</h1>
       <app-button class="intro__btn" @click="$router.push({ name: 'Find' })">
@@ -93,15 +93,5 @@ export default {
     background-color: $main-color;
     color: #fff;
   }
-}
-.overlay {
-  z-index: 1;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  background: #2d3e50;
-  position: absolute;
-  opacity: 0.7;
 }
 </style>

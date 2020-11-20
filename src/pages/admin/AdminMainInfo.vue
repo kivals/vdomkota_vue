@@ -11,8 +11,8 @@
       </b-col>
     </b-row>
     <b-row>
-      <b-col cols="12" xl="8">
-        <IntroSection></IntroSection>
+      <b-col cols="12">
+        <IntroSection :introVideo="mainPageConfig.introVideo"></IntroSection>
       </b-col>
     </b-row>
   </b-container>
