@@ -14,7 +14,10 @@
       <b-col cols="12">
         <IntroSection
           @saveVideo="saveVideo"
+          @saveIntroTitle="saveIntroTitle"
           :introVideo="mainPageConfig.introVideo"
+          :introText="mainPageConfig.introText"
+          :introButtonText="mainPageConfig.introButtonText"
         ></IntroSection>
       </b-col>
     </b-row>
@@ -47,8 +50,13 @@ export default {
     },
     saveVideo($event) {
       this.$store.dispatch('updateVideo', $event);
-      this.$store.dispatch('updateMainPageConfig');
     },
+    saveIntroTitle($event) {
+      const { title, buttonText } = $event;
+      this.$store.commit('setIntroText', title);
+      this.$store.commit('setIntroButtonText', buttonText);
+      this.$store.dispatch('updateMainPageConfig');
+    }
   },
 };
 </script>

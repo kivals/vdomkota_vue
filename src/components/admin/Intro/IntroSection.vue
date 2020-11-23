@@ -4,30 +4,12 @@
       <h6 class="mb-0">Интро - блок</h6>
     </template>
     <b-row>
-      <b-col>
-        <b-card>
-          <template #header>
-            <h6 class="mb-0">Другие настройки</h6>
-          </template>
-          <div>
-            <b-form-group
-              label-cols="4"
-              label-cols-lg="2"
-              label="Текст заголовка"
-              label-for="input-default"
-            >
-              <b-form-input id="input-default"></b-form-input>
-            </b-form-group>
-            <b-form-group
-              label-cols="4"
-              label-cols-lg="2"
-              label="Текст кнопки"
-              label-for="input-default"
-            >
-              <b-form-input id="input-default"></b-form-input>
-            </b-form-group>
-          </div>
-        </b-card>
+      <b-col cols="12" md="5">
+        <IntroTitle
+          @saveIntroTitle="$emit('saveIntroTitle', $event)"
+          :introText="introText"
+          :introButtonText="introButtonText"
+        ></IntroTitle>
       </b-col>
     </b-row>
     <b-row>
@@ -43,23 +25,24 @@
 
 <script>
 import VideoEdit from '@/components/admin/Intro/VideoEdit';
+import IntroTitle from '@/components/admin/Intro/IntroTitle';
 
 export default {
   name: 'IntroSection',
   components: {
     VideoEdit,
+    IntroTitle,
   },
   props: {
-    title: {
+    introText: {
       type: String,
-      //required: true,
     },
     introVideo: {
       type: String,
     },
-    buttonText: {
+    introButtonText: {
       type: String,
-      // required: true,
+      required: true,
     },
   },
 };

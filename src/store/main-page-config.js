@@ -26,8 +26,11 @@ export default {
     setUploading(state, value) {
       state.uploading = value;
     },
-    setIntroVideo(state, value) {
-      state.mainPageConfig.introVideo = value;
+    setIntroText(state, value) {
+      state.mainPageConfig.introText = value;
+    },
+    setIntroButtonText(state, value) {
+      state.mainPageConfig.introButtonText = value;
     },
   },
   actions: {
