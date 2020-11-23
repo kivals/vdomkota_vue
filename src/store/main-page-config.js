@@ -2,6 +2,7 @@ import { FirestoreCollection } from '@/store/helpers/firestore-collection';
 import { Storage } from '@/store/helpers/Storage';
 
 const LOGO_PATH = 'main-page-config/logo.jpg';
+const VIDEO_PATH = 'main-page-config/video.mp4';
 
 export default {
   state: {
@@ -31,6 +32,7 @@ export default {
   },
   actions: {
     async loadMainPageConfig({ commit }) {
+      console.log('loadMainPageConfig');
       try {
         let mainPageConfig = {};
         const pageConfigCollection = new FirestoreCollection('PageConfig');
@@ -59,6 +61,8 @@ export default {
     },
     //TODO Сделать вывод пользователю сообщения об успехе или нет
     async updateMainPageConfig({ state }) {
+      console.log('updateMainPageConfig');
+      console.log(state.mainPageConfig.introVideo);
       try {
         //TODO дублируется
         const pageConfigCollection = new FirestoreCollection('PageConfig');
@@ -92,6 +96,34 @@ export default {
           logoRef.snapshot.ref.getDownloadURL().then(url => {
             commit('setUploading', false);
             commit('setLogo', url);
+          });
+        },
+      );
+    },
+
+    updateVideo({ commit, dispatch }, payload) {
+      commit('setUploading', true);
+      const videoRef = Storage.getInstance().update(VIDEO_PATH, payload);
+      videoRef.on(
+        'state_changed',
+        snapshot => {
+          const completedValue =
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          commit('setUploadPercent', completedValue);
+        },
+        //TODO Обработка ошибок
+        error => {
+          commit('setUploading', false);
+          // A full list of error codes is available at
+          // https://firebase.google.com/docs/storage/web/handle-errors
+          console.log(error.message);
+        },
+        () => {
+          commit('setUploadPercent', 100);
+          videoRef.snapshot.ref.getDownloadURL().then(url => {
+            commit('setUploading', false);
+            commit('setIntroVideo', url);
+            dispatch('updateMainPageConfig');
           });
         },
       );

@@ -12,7 +12,10 @@
     </b-row>
     <b-row>
       <b-col cols="12">
-        <IntroSection :introVideo="mainPageConfig.introVideo"></IntroSection>
+        <IntroSection
+          @saveVideo="saveVideo"
+          :introVideo="mainPageConfig.introVideo"
+        ></IntroSection>
       </b-col>
     </b-row>
   </b-container>
@@ -41,6 +44,10 @@ export default {
     },
     saveLogo($event) {
       this.$store.dispatch('updateLogo', $event);
+    },
+    saveVideo($event) {
+      this.$store.dispatch('updateVideo', $event);
+      this.$store.dispatch('updateMainPageConfig');
     },
   },
 };

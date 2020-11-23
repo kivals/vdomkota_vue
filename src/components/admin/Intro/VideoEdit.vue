@@ -5,7 +5,7 @@
     </template>
     <div class="wrapper">
       <div class="video">
-        <video autoplay muted loop>
+        <video ref="video" autoplay muted loop>
           <source :src="videoUrl" type="video/mp4" />
           Your browser does not support HTML5 video.
         </video>
@@ -73,20 +73,29 @@ export default {
       return this.$store.getters.uploading;
     },
   },
+  watch: {
+    videoUrl: function() {
+      this.$refs.video.load();
+    },
+    uploadPercent: function(newValue) {
+      if (newValue === 100) {
+        this.isEdit = false;
+      }
+    },
+  },
   methods: {
     changeVideo() {
       //Файл не выбран, сохранять нечего
-      // if (!this.chooseFile && this.isEdit) {
-      //   return;
-      // }
-      // if (this.isEdit && !this.uploading) {
-      //   //this.$store.dispatch('updateLogo', this.chooseFile);
-      //   //this.$emit('saveLogo', this.chooseFile);
-      //   return;
-      // }
+      if (!this.chooseFile && this.isEdit) {
+        return;
+      }
+      if (this.isEdit && !this.uploading) {
+        this.$emit('saveVideo', this.chooseFile);
+        return;
+      }
       this.isEdit = !this.isEdit;
-      // //this.$store.commit('setUploadPercent', 0);
-      // this.chooseFile = null;
+      //this.$store.commit('setUploadPercent', 0);
+      this.chooseFile = null;
     },
   },
 };

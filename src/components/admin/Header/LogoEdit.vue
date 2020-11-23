@@ -4,7 +4,8 @@
       <h6 class="mb-0">Логотип сайта</h6>
     </template>
     <div class="d-flex justify-content-center">
-      <AppLogo v-if="!uploading" :logo="logoUrl"></AppLogo></div>
+      <AppLogo v-if="!uploading" :logo="logoUrl"></AppLogo>
+    </div>
     <b-form-file
       v-if="isEdit && !uploading"
       accept=".jpg, .png, .gif"

@@ -32,7 +32,10 @@
     </b-row>
     <b-row>
       <b-col>
-        <VideoEdit :introVideo="introVideo"></VideoEdit>
+        <VideoEdit
+          @saveVideo="$emit('saveVideo', $event)"
+          :introVideo="introVideo"
+        ></VideoEdit>
       </b-col>
     </b-row>
   </b-card>
@@ -62,6 +65,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
