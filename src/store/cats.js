@@ -10,10 +10,14 @@ export default {
     },
   },
   actions: {
-    async loadCats({ commit }) {
+    async loadShelterCats({ commit }) {
       try {
         const pageConfigCollection = new FirestoreCollection('cats');
-        const cats = await pageConfigCollection.getAllDocsRequest();
+        const cats = await pageConfigCollection.getAllDocsRequest({
+          field: 'hasHome',
+          operator: '==',
+          value: false,
+        });
         commit('setCats', cats);
       } catch (error) {
         console.log(error);

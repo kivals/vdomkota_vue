@@ -56,7 +56,7 @@ export default {
       this.$store.commit('setIntroText', title);
       this.$store.commit('setIntroButtonText', buttonText);
       this.$store.dispatch('updateMainPageConfig');
-    }
+    },
   },
 };
 </script>

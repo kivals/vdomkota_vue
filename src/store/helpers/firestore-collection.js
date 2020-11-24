@@ -26,14 +26,27 @@ export class FirestoreCollection {
    * Вернуть все документы из коллекции
    * @returns набор документов
    */
-  async getAllDocsRequest() {
+  async getAllDocsRequest(whereCondition) {
     let docs = [];
-    const querySnapshot = await this._ref.get();
-    querySnapshot.forEach(function(doc) {
-      docs.push(doc.data());
+    let collectionRef = this._ref;
+    if (whereCondition) {
+      collectionRef = this._ref.where(
+        whereCondition.field,
+        whereCondition.operator,
+        whereCondition.value,
+      );
+    }
+    const querySnapshot = await collectionRef.get();
+    querySnapshot.forEach(function(docRef) {
+      docs.push({
+        id: docRef.id,
+        ...docRef.data(),
+      });
     });
     return docs;
   }
+
+  async getWhereDocRequest() {}
 
   async saveDocRequest(docName, payload) {
     const docRef = this._ref.doc(docName);

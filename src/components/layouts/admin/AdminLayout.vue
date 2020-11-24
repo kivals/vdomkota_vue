@@ -64,7 +64,9 @@
           <h5 class="sidenav-heading">Контент сайта</h5>
           <ul id="side-admin-menu" class="side-menu list-unstyled">
             <li>
-              <a href="#"><b-icon icon="journals"></b-icon>Котики</a>
+              <router-link to="/admin/cats"
+                ><b-icon icon="journals"></b-icon>Котики</router-link
+              >
             </li>
             <li>
               <a href="#"><b-icon icon="list-ol"></b-icon>Список статей </a>
@@ -96,7 +98,8 @@
                   @click.prevent="toggleBtnClick"
                   href="#"
                   class="menu-btn"
-                  ><i class="icon-bars"> </i></a>
+                  ><i class="icon-bars"> </i
+                ></a>
 
                 <a href="index.html" class="navbar-brand">
                   <div class="brand-text d-none d-md-inline-block">

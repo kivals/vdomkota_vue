@@ -42,7 +42,7 @@ export default {
   async mounted() {
     this.isMobileHandler();
     window.addEventListener('resize', this.isMobileHandler);
-    await this.$store.dispatch('loadCats');
+    await this.$store.dispatch('loadShelterCats');
     await this.$store.dispatch('loadMainPageConfig');
     await this.$store.dispatch('loadFindPageConfig');
     this.loading = false;
