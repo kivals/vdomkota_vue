@@ -22,7 +22,7 @@
             {{ cat.shortInfo }}
           </b-card-text>
 
-          <b-button href="#" variant="primary">Перейти</b-button>
+          <b-button @click="goToCatEdit(cat.id)" variant="primary">Перейти</b-button>
         </b-card>
       </b-col>
     </b-row>
@@ -46,11 +46,16 @@ export default {
             photo => photo.previewPhoto && photo.url,
           )[0];
         }
-        cat['previewPhoto'] = previewCat.url;
+        cat['previewPhoto'] = (previewCat && previewCat.url) || '';
         cat['shortInfo'] =
           cat.info.length > 150 ? cat.info.slice(0, 150) + '...' : cat.info;
         return cat;
       });
+    },
+  },
+  methods: {
+    goToCatEdit(catId) {
+      this.$router.push({ name: 'AdminCatEdit', params: { catId } });
     },
   },
 };

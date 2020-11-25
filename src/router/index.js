@@ -5,6 +5,7 @@ import AdminMainInfo from '@/pages/admin/AdminMainInfo';
 import AdminLogin from '@/pages/admin/AdminLogin';
 import firebase from 'firebase/app';
 import AdminCats from '@/pages/admin/AdminCats';
+import AdminCatEdit from '@/pages/admin/AdminCatEdit';
 
 Vue.use(VueRouter);
 
@@ -39,6 +40,12 @@ const routes = [
     name: 'AdminCats',
     meta: { layout: 'admin', auth: true },
     component: AdminCats,
+  },
+  {
+    path: '/admin/cats/:catId',
+    name: 'AdminCatEdit',
+    meta: { layout: 'admin', auth: true },
+    component: AdminCatEdit,
   },
   {
     path: '/admin/login',

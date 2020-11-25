@@ -29,7 +29,7 @@
           <h5 class="sidenav-heading">Страницы</h5>
           <ul id="side-main-menu" class="side-menu list-unstyled">
             <li>
-              <router-link to="/admin">
+              <router-link :to="{ name: 'AdminHome' }">
                 <b-icon icon="house-door"></b-icon>
                 Главная
               </router-link>
@@ -64,7 +64,7 @@
           <h5 class="sidenav-heading">Контент сайта</h5>
           <ul id="side-admin-menu" class="side-menu list-unstyled">
             <li>
-              <router-link to="/admin/cats"
+              <router-link :to="{ name: 'AdminCats' }"
                 ><b-icon icon="journals"></b-icon>Котики</router-link
               >
             </li>
@@ -94,7 +94,6 @@
               <div class="navbar-header">
                 <a
                   id="toggle-btn"
-                  v-if="showToggleBtn"
                   @click.prevent="toggleBtnClick"
                   href="#"
                   class="menu-btn"
