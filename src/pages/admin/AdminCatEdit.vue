@@ -8,7 +8,10 @@
               <CatDescription :cat="cat"></CatDescription>
             </b-col>
             <b-col>
-              <CatPhotos :photos="cat.photos"></CatPhotos>
+              <CatPhotos
+                v-if="cat.photos.length > 0"
+                :photos="cat.photos"
+              ></CatPhotos>
             </b-col>
           </b-row>
           <template #footer>
@@ -42,6 +45,7 @@ export default {
   },
   methods: {
     setCatId(id) {
+      //TODO исполььзовать find
       const findCat = this.$store.getters.cats.filter(cat => cat.id === id);
       if (findCat.length > 0) {
         this.cat = findCat[0];

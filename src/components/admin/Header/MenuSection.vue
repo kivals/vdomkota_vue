@@ -14,9 +14,7 @@
     </b-list-group>
     <b-list-group v-else>
       <b-list-group-item v-for="menuItem in localMenu" :key="menuItem.menuKey">
-        <b-form-input
-          v-model="menuItem.name"
-        ></b-form-input>
+        <b-form-input v-model="menuItem.name"></b-form-input>
         <b-form-checkbox v-model="menuItem.visible" name="check-button" switch>
           Показывать: <b>{{ menuItem.visible ? 'ДА' : 'НЕТ' }}</b>
         </b-form-checkbox>
