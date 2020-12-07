@@ -42,6 +42,7 @@ export default {
       return this.cats.map(cat => {
         let previewCat = '';
         if (Array.isArray(cat.photos)) {
+          //TODO Заменить на filter
           previewCat = cat.photos.filter(
             photo => photo.previewPhoto && photo.url,
           )[0];

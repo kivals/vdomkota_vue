@@ -15,7 +15,7 @@
             </b-col>
           </b-row>
           <template #footer>
-            кнопки
+            <b-button variant="success">Сохранить</b-button>
           </template>
         </b-card>
       </b-col>
@@ -45,11 +45,8 @@ export default {
   },
   methods: {
     setCatId(id) {
-      //TODO исполььзовать find
-      const findCat = this.$store.getters.cats.filter(cat => cat.id === id);
-      if (findCat.length > 0) {
-        this.cat = findCat[0];
-      }
+      const findCat = this.$store.getters.cats.find(cat => cat.id === id);
+      this.cat = findCat || {};
     },
   },
 };
