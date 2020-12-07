@@ -1,7 +1,7 @@
 <template>
   <b-card>
     <template #header>
-      <h6 class="mb-0">Карточка: {{ cat.name }}</h6>
+      <h6 class="mb-0">Карточка: {{ localCat.name }}</h6>
     </template>
     <b-form>
       <b-form-group
@@ -12,7 +12,7 @@
       >
         <b-form-input
           id="catName"
-          v-model="cat.name"
+          v-model="localCat.name"
           type="text"
           required
           placeholder="Введите кличку животного"
@@ -27,7 +27,7 @@
       >
         <b-form-input
           id="catAge"
-          v-model="cat.age"
+          v-model="localCat.age"
           type="number"
           required
           placeholder="Введите возраст животного"
@@ -42,7 +42,7 @@
       >
         <b-form-textarea
           id="catInfo"
-          v-model="cat.info"
+          v-model="localCat.info"
           placeholder="Опишите животное..."
           rows="7"
           max-rows="15"
@@ -56,7 +56,7 @@
       >
         <b-form-input
           id="catDiseases"
-          v-model="cat.diseases"
+          v-model="localCat.diseases"
           type="text"
           placeholder="Напишите болезни животного"
         ></b-form-input>
@@ -69,7 +69,7 @@
       >
         <b-form-input
           id="catInoculation"
-          v-model="cat.inoculations"
+          v-model="localCat.inoculations"
           type="text"
           placeholder="Напишите прививки животного"
         ></b-form-input>
@@ -84,7 +84,7 @@
       >
         <b-form-textarea
           id="catExtraInfo"
-          v-model="cat.extraInfo"
+          v-model="localCat.extraInfo"
           placeholder="Дополните информацию о животном ..."
           rows="3"
           max-rows="10"
@@ -92,8 +92,8 @@
       </b-form-group>
 
       <b-form-group id="input-group-7">
-        <b-form-checkbox v-model="cat.hasHome" name="check-button" switch>
-          Забрали домой: <b>{{ cat.hasHome ? 'ДА' : 'НЕТ' }}</b>
+        <b-form-checkbox v-model="localCat.hasHome" name="check-button" switch>
+          Забрали домой: <b>{{ localCat.hasHome ? 'ДА' : 'НЕТ' }}</b>
         </b-form-checkbox>
       </b-form-group>
     </b-form>
@@ -101,6 +101,7 @@
 </template>
 
 <script>
+import cloneDeep from 'lodash/cloneDeep';
 export default {
   name: 'CatDescription',
   props: {
@@ -108,6 +109,11 @@ export default {
       type: Object,
       required: true,
     },
+  },
+  data() {
+    return {
+      localCat: cloneDeep(this.cat),
+    };
   },
 };
 </script>

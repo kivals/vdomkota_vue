@@ -5,7 +5,7 @@
         <b-card>
           <b-row>
             <b-col>
-              <CatDescription :cat="cat"></CatDescription>
+              <CatDescription v-if="cat.id" :cat="cat"></CatDescription>
             </b-col>
             <b-col>
               <CatPhotos
@@ -46,7 +46,9 @@ export default {
   methods: {
     setCatId(id) {
       const findCat = this.$store.getters.cats.find(cat => cat.id === id);
-      this.cat = findCat || {};
+      if (findCat) {
+        this.cat = findCat;
+      }
     },
   },
 };
