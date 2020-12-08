@@ -10,7 +10,7 @@
       <div class="d-flex justify-content-between align-items-center">
         <b-form-checkbox
           :checked="photo.previewPhoto"
-          @change="$emit('change', $event, photo)"
+          @change="$emit('toggleMainPhoto', $event, photo)"
           name="check-button"
           switch
         >
@@ -31,6 +31,10 @@
 <script>
 export default {
   name: 'CatPhotoItem',
+  model: {
+    prop: 'photo',
+    event: 'change',
+  },
   props: {
     photo: {
       type: Object,

@@ -29,6 +29,8 @@
           id="catAge"
           v-model="localCat.age"
           type="number"
+          max="360"
+          min="1"
           required
           placeholder="Введите возраст животного"
         ></b-form-input>
@@ -114,6 +116,14 @@ export default {
     return {
       localCat: cloneDeep(this.cat),
     };
+  },
+  watch: {
+    localCat: {
+      deep: true,
+      handler(newValue) {
+        this.$emit('update:cat', cloneDeep(newValue));
+      },
+    },
   },
 };
 </script>

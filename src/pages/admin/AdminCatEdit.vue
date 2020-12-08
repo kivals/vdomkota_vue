@@ -5,12 +5,12 @@
         <b-card>
           <b-row>
             <b-col>
-              <CatDescription v-if="cat.id" :cat="cat"></CatDescription>
+              <CatDescription v-if="cat.id" :cat.sync="cat"></CatDescription>
             </b-col>
             <b-col>
               <CatPhotos
                 v-if="cat.photos.length > 0"
-                :photos="cat.photos"
+                v-model="cat.photos"
               ></CatPhotos>
             </b-col>
           </b-row>

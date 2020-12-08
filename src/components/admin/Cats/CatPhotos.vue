@@ -9,7 +9,7 @@
         <b-col cols="12" xl="4" v-for="(photo, ind) in serverPhotos" :key="ind">
           <CatPhotoItem
             :photo="photo"
-            @change="checkedHandler"
+            @toggleMainPhoto="toggleMainPhotoHandler"
             @delete="deleteHandler"
           ></CatPhotoItem>
         </b-col>
@@ -30,7 +30,7 @@
         >
           <CatPhotoItem
             :photo="addedPhoto"
-            @change="checkedHandler"
+            @toggleMainPhoto="toggleMainPhotoHandler"
             @delete="deleteHandler"
           ></CatPhotoItem>
         </b-col>
@@ -62,6 +62,10 @@ export default {
   components: {
     CatPhotoItem,
   },
+  model: {
+    prop: 'photos',
+    event: 'changePhotos',
+  },
   props: {
     photos: {
       type: Array,
@@ -74,7 +78,7 @@ export default {
     };
   },
   computed: {
-    //TODO magic business number
+    //TODO magic business number 10
     allowToAdd() {
       return this.localPhotos.length < 10 || false;
     },
@@ -85,10 +89,18 @@ export default {
       return this.localPhotos.filter(photo => photo.isNew);
     },
   },
+  watch: {
+    localPhotos: {
+      deep: true,
+      handler(newValue) {
+        this.$emit('changePhotos', cloneDeep(newValue));
+      },
+    },
+  },
   methods: {
     onFileChange(e) {
       const file = e.target.files[0];
-      //Помечаем добавленые картинки, чтобы отличать загруженные с сервера
+      //Помечаем добавленые картинки свойством isNew, чтобы отличать загруженные с сервера
       this.localPhotos.push({
         previewPhoto: false,
         url: URL.createObjectURL(file),
@@ -102,7 +114,7 @@ export default {
      * @param $event true или false
      * @param photo обрабатываемый элемент
      */
-    checkedHandler($event, photo) {
+    toggleMainPhotoHandler($event, photo) {
       this.localPhotos.map(photo => (photo.previewPhoto = false));
       if ($event) {
         photo.previewPhoto = $event;
