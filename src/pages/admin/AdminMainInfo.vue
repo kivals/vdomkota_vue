@@ -42,6 +42,7 @@ export default {
   methods: {
     saveMenu($event) {
       //this.mainPageConfig.menu = $event;
+      //TODO await? проверить везде
       this.$store.commit('setMenuConfig', $event);
       this.$store.dispatch('updateMainPageConfig');
     },

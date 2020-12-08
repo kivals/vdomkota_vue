@@ -34,7 +34,7 @@ export default {
   name: 'AdminCats',
   data() {
     return {
-      cats: this.$store.getters.cats,
+      cats: [],
     };
   },
   computed: {
@@ -42,10 +42,9 @@ export default {
       return this.cats.map(cat => {
         let previewCat = '';
         if (Array.isArray(cat.photos)) {
-          //TODO Заменить на filter
-          previewCat = cat.photos.filter(
+          previewCat = cat.photos.find(
             photo => photo.previewPhoto && photo.url,
-          )[0];
+          );
         }
         cat['previewPhoto'] = (previewCat && previewCat.url) || '';
         cat['shortInfo'] =
@@ -53,6 +52,9 @@ export default {
         return cat;
       });
     },
+  },
+  mounted() {
+    this.cats = this.$store.getters.cats;
   },
   methods: {
     goToCatEdit(catId) {

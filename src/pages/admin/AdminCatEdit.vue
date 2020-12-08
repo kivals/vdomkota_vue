@@ -15,7 +15,7 @@
             </b-col>
           </b-row>
           <template #footer>
-            <b-button variant="success">Сохранить</b-button>
+            <b-button @click="saveCat(cat)" variant="success">Сохранить</b-button>
           </template>
         </b-card>
       </b-col>
@@ -26,6 +26,7 @@
 <script>
 import CatDescription from '@/components/admin/Cats/CatDescription';
 import CatPhotos from '@/components/admin/Cats/CatPhotos';
+import cloneDeep from 'lodash/cloneDeep';
 
 export default {
   name: 'AdminCatEdit',
@@ -47,8 +48,11 @@ export default {
     setCatId(id) {
       const findCat = this.$store.getters.cats.find(cat => cat.id === id);
       if (findCat) {
-        this.cat = findCat;
+        this.cat = cloneDeep(findCat);
       }
+    },
+    async saveCat(cat) {
+      await this.$store.dispatch('saveCat', cat);
     },
   },
 };

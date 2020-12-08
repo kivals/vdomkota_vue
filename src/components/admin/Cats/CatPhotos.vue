@@ -6,11 +6,11 @@
     <b-container>
       <b-row>
         <!-- Уже существующие фото -->
-        <b-col cols="12" xl="4" v-for="(photo, ind) in serverPhotos" :key="ind">
+        <b-col cols="12" xl="4" v-for="(photo, idx) in serverPhotos" :key="idx">
           <CatPhotoItem
             :photo="photo"
             @toggleMainPhoto="toggleMainPhotoHandler"
-            @delete="deleteHandler"
+            @delete="deleteHandler(photo)"
           ></CatPhotoItem>
         </b-col>
       </b-row>
@@ -24,14 +24,14 @@
         <b-col
           cols="12"
           xl="4"
-          v-for="(addedPhoto, ind) in addedPhotos"
-          :key="ind"
+          v-for="(addedPhoto, idx) in addedPhotos"
+          :key="idx"
           class="mt-3"
         >
           <CatPhotoItem
             :photo="addedPhoto"
             @toggleMainPhoto="toggleMainPhotoHandler"
-            @delete="deleteHandler"
+            @delete="deleteHandler(addedPhoto)"
           ></CatPhotoItem>
         </b-col>
       </b-row>
@@ -83,8 +83,9 @@ export default {
       return this.localPhotos.length < 10 || false;
     },
     serverPhotos() {
-      return this.localPhotos.filter(photo => !photo.isNew);
+      return this.localPhotos.filter(photo => !photo.isNew && !photo.isDelete);
     },
+    //Добавленные (несохраненные) фото
     addedPhotos() {
       return this.localPhotos.filter(photo => photo.isNew);
     },
@@ -122,10 +123,22 @@ export default {
     },
     /**
      * Обработчик удаления фото
-     * @param photo удаляемое фото
+     * @param photo фото
      */
     deleteHandler(photo) {
-      this.localPhotos = this.localPhotos.filter(vp => vp !== photo);
+      if (photo.isNew) {
+        //Фото которые добавил пользователь и не еще не сохранил, мы удаляем
+        this.localPhotos = this.localPhotos.filter(ph => ph !== photo);
+      } else {
+        //Фото которые уже загружены из БД помечаем на удаление
+        const idx = this.localPhotos.findIndex(p => p === photo);
+        if (idx !== -1) {
+          const deletedPhoto = this.localPhotos[idx];
+          deletedPhoto.isDelete = true;
+          //Заменяем
+          this.localPhotos.splice(idx, 1, this.localPhotos[idx]);
+        }
+      }
     },
   },
 };

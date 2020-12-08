@@ -17,7 +17,7 @@
           Основное: <b>{{ photo.previewPhoto ? 'ДА' : 'НЕТ' }}</b>
         </b-form-checkbox>
         <b-icon
-          @click="$emit('delete', photo)"
+          @click="$emit('delete')"
           style="cursor: pointer"
           icon="x-circle"
           scale="1.5"
