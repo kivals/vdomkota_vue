@@ -15,7 +15,9 @@
             </b-col>
           </b-row>
           <template #footer>
-            <b-button @click="saveCat(cat)" variant="success">Сохранить</b-button>
+            <b-button @click="saveCat(cat)" variant="success"
+              >Сохранить</b-button
+            >
           </template>
         </b-card>
       </b-col>
@@ -27,6 +29,7 @@
 import CatDescription from '@/components/admin/Cats/CatDescription';
 import CatPhotos from '@/components/admin/Cats/CatPhotos';
 import cloneDeep from 'lodash/cloneDeep';
+import isEqual from 'lodash/isEqual';
 
 export default {
   name: 'AdminCatEdit',
@@ -42,17 +45,36 @@ export default {
     };
   },
   beforeRouteEnter(to, from, next) {
-    next(vm => vm.setCatId(to.params.catId));
+    next(vm => vm.setCat(to.params.catId));
   },
   methods: {
-    setCatId(id) {
-      const findCat = this.$store.getters.cats.find(cat => cat.id === id);
-      if (findCat) {
-        this.cat = cloneDeep(findCat);
+    /**
+     * Метод для хука beforeRouteEnter
+     * установить состояние компоненты
+     */
+    setCat(id) {
+      const storeCat = this.$store.getters.cats.find(cat => cat.id === id);
+      if (storeCat) {
+        this.cat = cloneDeep(storeCat);
       }
     },
+    /**
+     * Сохранить сущность Кот
+     */
     async saveCat(cat) {
-      await this.$store.dispatch('saveCat', cat);
+      if (!this.isChanged()) {
+        console.log('Нечего сохранять');
+      } else {
+        await this.$store.dispatch('saveCat', cat);
+      }
+    },
+    /**
+     * Проверить были ли изменения
+     * @returns {boolean} true/false
+     */
+    isChanged() {
+      const storeCat = this.$store.getters.cats.find(cat => cat.id === this.cat.id);
+      return !isEqual(storeCat, this.cat);
     },
   },
 };

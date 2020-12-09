@@ -64,8 +64,6 @@ export default {
     },
     //TODO Сделать вывод пользователю сообщения об успехе или нет
     async updateMainPageConfig({ state }) {
-      console.log('updateMainPageConfig');
-      console.log(state.mainPageConfig.introVideo);
       try {
         //TODO дублируется
         const pageConfigCollection = new FirestoreCollection('PageConfig');

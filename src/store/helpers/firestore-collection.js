@@ -48,8 +48,8 @@ export class FirestoreCollection {
 
   async getWhereDocRequest() {}
 
-  async saveDocRequest(docName, payload) {
+  async saveDocRequest(docName, payload, options = {}) {
     const docRef = this._ref.doc(docName);
-    await docRef.set(payload);
+    await docRef.set(payload, options);
   }
 }
