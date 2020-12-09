@@ -31,6 +31,7 @@ export default {
         console.log(error);
       }
     },
+    //TODO мы не должны управлят id он сам должен присваиваться
     async saveCat({ commit }, payload) {
       //1 проверим на наличие изменений
       // if (isEqual(payload, state))
