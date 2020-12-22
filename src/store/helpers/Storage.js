@@ -16,7 +16,7 @@ export class Storage {
    * @param file файл
    * @returns объект мониторинга процесса загрузки
    */
-  update(path, file) {
+  putFile(path, file) {
     if (!path || !file) {
       return;
     }

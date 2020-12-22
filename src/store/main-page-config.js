@@ -77,7 +77,7 @@ export default {
     },
     updateLogo({ commit }, payload) {
       commit('setUploading', true);
-      const logoRef = Storage.getInstance().update(LOGO_PATH, payload);
+      const logoRef = Storage.getInstance().putFile(LOGO_PATH, payload);
       logoRef.on(
         'state_changed',
         snapshot => {
@@ -104,7 +104,7 @@ export default {
 
     updateVideo({ commit, dispatch }, payload) {
       commit('setUploading', true);
-      const videoRef = Storage.getInstance().update(VIDEO_PATH, payload);
+      const videoRef = Storage.getInstance().putFile(VIDEO_PATH, payload);
       videoRef.on(
         'state_changed',
         snapshot => {

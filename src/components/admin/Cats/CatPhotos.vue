@@ -105,6 +105,7 @@ export default {
       this.localPhotos.push({
         previewPhoto: false,
         url: URL.createObjectURL(file),
+        file,
         isNew: true,
       });
     },
