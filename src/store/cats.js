@@ -1,6 +1,6 @@
 import { FirestoreCollection } from '@/store/helpers/firestore-collection';
 import { Storage } from '@/store/helpers/Storage';
-//import Vue from 'vue';
+
 import firebase from 'firebase/app';
 
 export default {

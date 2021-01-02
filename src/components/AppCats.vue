@@ -1,10 +1,14 @@
 <template>
   <section class="cats">
     <div class="container">
-      <VueSlickCarousel class="slider-cats" v-bind="slickOptions">
+      <VueSlickCarousel
+        v-if="cats.length"
+        class="slider-cats"
+        v-bind="slickOptions"
+      >
         <div
           @click="$router.push({ name: 'Find' })"
-          v-for="(item, index) in 10"
+          v-for="(cat, index) in cats"
           :key="index"
           class="slider-cats__item cat-card"
         >
@@ -12,10 +16,10 @@
             <div class="cat-card__photo">
               <app-div-cover
                 class="cat-card__img"
-                :imagePath="imagePath"
+                :imagePath="cat.photo"
               ></app-div-cover>
             </div>
-            <p class="cat-card__name">Кличка кота</p>
+            <p class="cat-card__name">{{ cat.name }}</p>
             <app-button class="cat-card__btn">Подробнее</app-button>
           </div>
         </div>
@@ -37,6 +41,12 @@ export default {
     VueSlickCarousel,
     AppDivCover,
     AppButton,
+  },
+  props: {
+    cats: {
+      type: Array,
+      required: true,
+    },
   },
   data() {
     return {

@@ -5,7 +5,7 @@
       :videoUrl="mainPageConfig.introVideo"
       :buttonText="mainPageConfig.introButtonText"
     ></app-intro>
-    <app-cats></app-cats>
+    <app-cats :cats="sliderCats"></app-cats>
     <app-donation
       :title="mainPageConfig.bankTitle"
       :bankImg="mainPageConfig.bankCatImg"
@@ -66,12 +66,28 @@ export default {
         shelterInfo: '',
         shelterPhone: '',
       },
+      cats: [],
     };
+  },
+  computed: {
+    sliderCats() {
+      return this.cats.reduce((acc, cat) => {
+        const catInfo = {};
+        const photo = cat.photos.find(ph => ph.previewPhoto === true);
+        if (photo) {
+          catInfo.photo = photo.url;
+          catInfo.name = cat.name;
+          acc.push(catInfo);
+          return acc;
+        }
+      }, []);
+    },
   },
   mounted() {
     this.mainPageConfig = this.$store.getters.mainPageConfig;
     this.bank = this.$store.getters.bank;
     this.shelter = this.$store.getters.shelter;
+    this.cats = this.$store.getters.cats;
   },
 };
 </script>
