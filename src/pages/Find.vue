@@ -1,14 +1,14 @@
 <template>
   <div class="find-page">
-    <app-popup v-if="isCatPopupVisible" @closePopup="closePopup"> </app-popup>
+    <app-popup v-if="catPopupId" :catId="catPopupId" @closePopup="closePopup"> </app-popup>
     <div class="container">
       <p class="find-page__title">{{ findPageConfig.title }}</p>
       <div class="find-page__cats">
         <div
-          v-for="(cat, idx) in comCats"
-          :key="idx"
+          v-for="cat in comCats"
+          :key="cat.id"
           class="cat-card"
-          @click="showCatPopup"
+          @click="showCatPopup(cat.id)"
         >
           <app-div-cover
             class="cat-card__img"
@@ -43,24 +43,18 @@ export default {
       findPageConfig: {
         title: '',
       },
-      images: [
-        require('@/assets/img/cats_slider/5.jpg'),
-        require('@/assets/img/cats_slider/6.jpg'),
-        require('@/assets/img/cats_slider/7.jpg'),
-        require('@/assets/img/cats_slider/4.jpg'),
-        require('@/assets/img/cats_slider/8.jpg'),
-      ],
       cats: [],
-      isCatPopupVisible: false,
+      catPopupId: '',
     };
   },
   computed: {
     comCats() {
       return this.cats.map(c => {
-        const catShortInfo = {};
-        catShortInfo.name = c.name;
-        catShortInfo.photo = c.previewPhoto;
-        return catShortInfo;
+        return {
+          id: c.id,
+          name: c.name,
+          photo: c.previewPhoto,
+        };
       });
     },
   },
@@ -69,11 +63,11 @@ export default {
     this.cats = this.$store.getters.cats;
   },
   methods: {
-    showCatPopup() {
-      this.isCatPopupVisible = true;
+    showCatPopup(id) {
+      this.catPopupId = id;
     },
     closePopup() {
-      this.isCatPopupVisible = false;
+      this.catPopupId = '';
     },
   },
 };

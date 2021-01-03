@@ -8,8 +8,8 @@
       >
         <div
           @click="$router.push({ name: 'Find' })"
-          v-for="(cat, index) in cats"
-          :key="index"
+          v-for="cat in cats"
+          :key="cat.id"
           class="slider-cats__item cat-card"
         >
           <div class="cat-card__wrapper">

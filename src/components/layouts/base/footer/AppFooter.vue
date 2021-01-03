@@ -6,20 +6,12 @@
           <h3 class="contacts__title footer-title">
             {{ mainPageConfig.footerTitleQuestions }}
           </h3>
-          <div class="contacts__email footer-text">
-            {{ shelter.shelterEmail }}
-          </div>
-          <div class="contacts__phone footer-text">
-            {{ shelter.shelterPhone }}
-          </div>
         </div>
         <div class="footer__location location">
           <h3 class="location__title footer-title">
             {{ mainPageConfig.footerTitleVisit }}
           </h3>
-          <div class="location__spot footer-text">
-            {{ shelter.shelterAddress }}
-          </div>
+
         </div>
         <app-div-cover
           class="footer__photo"
@@ -140,36 +132,36 @@ export default {
     margin-bottom: 10px;
   }
 }
-.footer-text {
-  position: relative;
-  font-size: 20px;
-  line-height: 30px;
-  letter-spacing: 0.06em;
-  color: #f1cdb3;
-  padding-left: 55px;
-  margin-bottom: 35px;
-  &:before {
-    content: '';
-    position: absolute;
-    height: 40px;
-    width: 40px;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-  }
-  @media (max-width: $md1+px) {
-    font-size: 15px;
-    line-height: 25px;
-    letter-spacing: 0.04em;
-    padding-left: 55px;
-    margin-bottom: 25px;
-  }
-  @media (max-width: $md2+px) {
-    font-size: 10px;
-    line-height: 15px;
-    letter-spacing: 0.03em;
-    padding-left: 55px;
-    margin-bottom: 15px;
-  }
-}
+//.footer-text {
+//  position: relative;
+//  font-size: 20px;
+//  line-height: 30px;
+//  letter-spacing: 0.06em;
+//  color: #f1cdb3;
+//  padding-left: 55px;
+//  margin-bottom: 35px;
+//  &:before {
+//    content: '';
+//    position: absolute;
+//    height: 40px;
+//    width: 40px;
+//    top: 50%;
+//    left: 0;
+//    transform: translateY(-50%);
+//  }
+//  @media (max-width: $md1+px) {
+//    font-size: 15px;
+//    line-height: 25px;
+//    letter-spacing: 0.04em;
+//    padding-left: 55px;
+//    margin-bottom: 25px;
+//  }
+//  @media (max-width: $md2+px) {
+//    font-size: 10px;
+//    line-height: 15px;
+//    letter-spacing: 0.03em;
+//    padding-left: 55px;
+//    margin-bottom: 15px;
+//  }
+//}
 </style>

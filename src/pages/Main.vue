@@ -72,10 +72,11 @@ export default {
   computed: {
     sliderCats() {
       return this.cats.map(c => {
-        const catShortInfo = {};
-        catShortInfo.name = c.name;
-        catShortInfo.photo = c.previewPhoto;
-        return catShortInfo;
+        return {
+          id: c.id,
+          name: c.name,
+          photo: c.previewPhoto,
+        };
       });
     },
   },

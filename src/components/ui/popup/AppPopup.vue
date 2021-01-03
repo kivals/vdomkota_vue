@@ -3,24 +3,33 @@
     <div class="app-popup">
       <i class="material-icons app-popup__icon" @click="closePopup">close</i>
       <div class="app-popup__img">
-        <app-div-cover :imagePath="imagePath">
-        </app-div-cover>
+        <b-carousel
+          id="carousel-1"
+          :interval="4000"
+          controls
+          indicators
+          background="#ababab"
+          style="text-shadow: 1px 1px 2px #333;"
+        >
+          <!-- Slides with image only -->
+          <b-carousel-slide
+            v-for="(photo, ind) in cat.photos"
+            :key="ind"
+            :img-src="photo"
+          ></b-carousel-slide>
+        </b-carousel>
       </div>
       <div class="app-popup__text cat-description">
         <div class="cat-description__title">
-          Jennifer
+          {{ cat.name }}
         </div>
         <div class="cat-description__text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-          efficitur blandit condimentum. Proin accumsan lorem vel gra vida
-          fringilla. Suspendisse potenti. Mauris ut pulvinar nunc. Donec
-          consectetur, diam in porta tempus, urna ligula ves tibulum nibh.
+          {{ cat.info }}
         </div>
         <ul class="cat-description__list">
-          <li><span>Age:</span>2 month</li>
-          <li><span>Inoculations:</span>none</li>
-          <li><span>Diseases:</span>none</li>
-          <li><span>Parasites:</span>none</li>
+          <li><span>Возраст:</span>{{ cat.age }}</li>
+          <li><span>Болезни:</span>{{ cat.diseases }}</li>
+          <li><span>Паразиты:</span>{{ cat.parasites }}</li>
         </ul>
       </div>
     </div>
@@ -28,21 +37,25 @@
 </template>
 
 <script>
-import AppDivCover from '@/components/ui/AppDivCover';
-
 export default {
   name: 'AppPopup',
-  components: {
-    AppDivCover,
+  props: {
+    catId: {
+      type: String,
+      required: true,
+    },
   },
   data() {
     return {
-      imagePath: require('@/assets/img/about/cat-about.jpg'),
+      cat: {},
     };
   },
   methods: {
     closePopup() {
       this.$emit('closePopup');
+    },
+    findCatById(id) {
+      return this.$store.getters.cats.find(c => c.id === id);
     },
   },
   mounted() {
@@ -52,6 +65,8 @@ export default {
         vm.closePopup();
       }
     });
+
+    this.cat = this.findCatById(this.catId);
   },
 };
 </script>
@@ -68,7 +83,6 @@ export default {
   top: 0;
   bottom: 0;
   overflow: auto;
-  z-index: 9999;
 }
 .app-popup {
   padding: 16px;
@@ -77,10 +91,8 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 80vw;
-  max-width: 970px;
   background: #fff;
   box-shadow: 0 0 17px 0 #e7e7e7;
-  display: flex;
   z-index: 9999;
   &__icon {
     position: absolute;
