@@ -8,7 +8,7 @@
     </div>
     <b-form-file
       v-if="isEdit && !uploading"
-      accept=".jpg, .png, .gif"
+      accept=".jpg, .png, .gif, .webp"
       v-model="chooseFile"
       :state="Boolean(chooseFile)"
       placeholder="Выберете картинку..."
