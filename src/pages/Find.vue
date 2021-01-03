@@ -5,17 +5,17 @@
       <p class="find-page__title">{{ findPageConfig.title }}</p>
       <div class="find-page__cats">
         <div
-          v-for="(image, idx) in images"
+          v-for="(cat, idx) in comCats"
           :key="idx"
           class="cat-card"
           @click="showCatPopup"
         >
           <app-div-cover
             class="cat-card__img"
-            :imagePath="image"
+            :imagePath="cat.photo"
           ></app-div-cover>
           <p class="cat-card__title">
-            Кокс
+            {{ cat.name }}
           </p>
           <app-button class="cat-card__btn">Взять котика</app-button>
         </div>
@@ -50,11 +50,23 @@ export default {
         require('@/assets/img/cats_slider/4.jpg'),
         require('@/assets/img/cats_slider/8.jpg'),
       ],
+      cats: [],
       isCatPopupVisible: false,
     };
   },
+  computed: {
+    comCats() {
+      return this.cats.map(c => {
+        const catShortInfo = {};
+        catShortInfo.name = c.name;
+        catShortInfo.photo = c.previewPhoto;
+        return catShortInfo;
+      });
+    },
+  },
   async mounted() {
     this.findPageConfig = this.$store.getters.findPageConfig;
+    this.cats = this.$store.getters.cats;
   },
   methods: {
     showCatPopup() {

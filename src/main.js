@@ -37,7 +37,6 @@ firebase.initializeApp({
 const db = firebase.firestore();
 const storage = firebase.storage();
 Vue.$db = db;
-console.log('set');
 Vue.$storage = storage;
 
 let app;
