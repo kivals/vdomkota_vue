@@ -1,7 +1,5 @@
 <template>
-  <a href="#">
-    <img :src="logo" alt="LOGO" />
-  </a>
+  <router-link to="/"><img :src="logo" alt="LOGO"/></router-link>
 </template>
 
 <script>

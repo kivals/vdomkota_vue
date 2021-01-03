@@ -34,9 +34,9 @@ export default {
           to: '/find',
           active: false,
         },
-        { name: 'Articles', title: 'Статьи', to: '/', active: false },
-        { name: 'Details', title: 'Реквизиты', to: '/', active: false },
-        { name: 'About', title: 'О нас', to: '/', active: false },
+        { name: 'Articles', title: 'Статьи', to: '/articles', active: false },
+        { name: 'Details', title: 'Реквизиты', to: '/details', active: false },
+        { name: 'About', title: 'О нас', to: '/about', active: false },
       ],
     };
   },

@@ -1,13 +1,16 @@
 <template>
   <div class="menu">
     <ul class="menu__list">
-      <li
+      <router-link
         v-for="item in menu"
         :key="item.name"
-        :class="{ active: item.active }"
+        tag="li"
+        :to="item.to"
+        class="menu__link"
+        exact-active-class="active"
+        exact
+        >{{ item.title }}</router-link
       >
-        <router-link :to="item.to" class="menu__link">{{ item.title }}</router-link>
-      </li>
     </ul>
   </div>
 </template>
@@ -30,15 +33,15 @@ export default {
     display: flex;
     justify-content: space-between;
     li {
+      cursor: pointer;
       margin: 0 60px 0 0;
       &:last-child {
         margin: 0;
       }
       &.active {
-        a {
-          color: #000;
-        }
-        a::after {
+        color: #000;
+
+        &::after {
           content: '';
           position: absolute;
           left: 0;
