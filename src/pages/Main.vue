@@ -71,16 +71,12 @@ export default {
   },
   computed: {
     sliderCats() {
-      return this.cats.reduce((acc, cat) => {
-        const catInfo = {};
-        const photo = cat.photos.find(ph => ph.previewPhoto === true);
-        if (photo) {
-          catInfo.photo = photo.url;
-          catInfo.name = cat.name;
-          acc.push(catInfo);
-          return acc;
-        }
-      }, []);
+      return this.cats.map(c => {
+        const catShortInfo = {};
+        catShortInfo.name = c.name;
+        catShortInfo.photo = c.previewPhoto;
+        return catShortInfo;
+      });
     },
   },
   mounted() {

@@ -69,7 +69,7 @@ export default {
           photoRef.snapshot.ref
             .getDownloadURL()
             .then(url => {
-              console.log('Файл закгружен = ' + url);
+              console.log('Файл загружен = ' + url);
               //2 добавляем данные о фото в коллекцию cats
               const pageConfigCollection = new FirestoreCollection('cats');
               const catRef = pageConfigCollection._ref.doc(catId);
