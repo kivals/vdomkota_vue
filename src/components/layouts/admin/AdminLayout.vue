@@ -146,6 +146,6 @@ export default {
 </script>
 
 <style lang="scss" scope>
-@import '@/assets/sass/common/admin.scss';
+//@import '@/assets/sass/common/admin.scss';
 @import '@/assets/sass/common/admin-icons.scss';
 </style>

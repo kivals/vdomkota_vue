@@ -1,6 +1,7 @@
 <template>
   <div class="find-page">
-    <app-popup v-if="catPopupId" :catId="catPopupId" @closePopup="closePopup"> </app-popup>
+    <app-popup v-if="catPopupId" :catId="catPopupId" @closePopup="closePopup">
+    </app-popup>
     <div class="container">
       <p class="find-page__title">{{ findPageConfig.title }}</p>
       <div class="find-page__cats">
@@ -8,7 +9,7 @@
           v-for="cat in comCats"
           :key="cat.id"
           class="cat-card"
-          @click="showCatPopup(cat.id)"
+          @click="$router.push({ name: 'CatInfo', params: { catId: cat.id } })"
         >
           <app-div-cover
             class="cat-card__img"

@@ -23,12 +23,18 @@ const routes = [
     component: () => import('@/pages/Find'),
   },
   {
+    path: '/find/:catId',
+    name: 'CatInfo',
+    meta: { layout: 'base' },
+    component: () => import('@/pages/CatInfo'),
+  },
+  {
     path: '*',
     name: '404',
     meta: { layout: 'base-empty' },
     component: () => import('@/pages/NotFoundPage'),
   },
-  /* Admin routes */
+  /*===================== Admin routes ========================== */
   {
     path: '/admin',
     name: 'AdminHome',

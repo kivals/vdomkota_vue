@@ -1,7 +1,6 @@
 <template>
   <div class="popup_wrapper" ref="popup_wrapper">
     <div class="app-popup">
-      <i class="material-icons app-popup__icon" @click="closePopup">close</i>
       <div class="app-popup__img">
         <b-carousel
           id="carousel-1"
@@ -71,7 +70,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .popup_wrapper {
   background: rgba(64, 64, 64, 0.4);
   display: flex;
@@ -91,36 +90,26 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 80vw;
+  max-height: 80vh;
   background: #fff;
   box-shadow: 0 0 17px 0 #e7e7e7;
   z-index: 9999;
-  &__icon {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    cursor: pointer;
-    font-size: 30px;
-    border: 2px solid $main-color;
-    border-radius: 50%;
-    @media (max-width: $md4+px) {
-      top: auto;
-      right: 10px;
-      bottom: 10px;
-    }
-  }
+  //display: flex;
   &__img {
-    flex: 1 0 40%;
-    @media (max-width: $md4+px) {
-      width: 100%;
-      height: 150px;
-    }
+    width: 100%;
+    height: 500px;
+    background-color: #3c4b64;
+    //@media (max-width: $md2+px) {
+    //  width: 100%;
+    //}
   }
-  @media (max-width: $md3+px) {
-    width: 100vw;
+  &__text {
+    overflow: auto;
+   // width: 50%;
   }
-  @media (max-width: $md4+px) {
-    display: block;
-  }
+  //@media (max-width: $md2+px) {
+  //  display: block;
+  //}
 }
 .cat-description {
   padding: 50px 40px;
