@@ -6,12 +6,23 @@
           <h3 class="contacts__title footer-title">
             {{ mainPageConfig.footerTitleQuestions }}
           </h3>
+          <div class="contacts__email footer-text">
+            <b-icon icon="envelope" font-scale="1.5"></b-icon>
+            {{ shelter.shelterEmail }}
+          </div>
+          <div class="contacts__phone footer-text">
+            <b-icon icon="phone" font-scale="1.5"></b-icon>
+            {{ shelter.shelterPhone }}
+          </div>
         </div>
         <div class="footer__location location">
           <h3 class="location__title footer-title">
             {{ mainPageConfig.footerTitleVisit }}
           </h3>
-
+          <div class="location__spot footer-text">
+            <b-icon icon="geo-alt" font-scale="1.5"></b-icon>
+            {{ shelter.shelterAddress }}
+          </div>
         </div>
         <app-div-cover
           class="footer__photo"
@@ -86,26 +97,26 @@ export default {
   }
 }
 .contacts {
-  &__email {
-    &:before {
-      background: url('~@/assets/img/icons/email.png') 0 0 no-repeat;
-    }
-  }
-  &__phone {
-    &:before {
-      width: 10px;
-      height: 10px;
-      background-size: cover;
-      background: url('~@/assets/img/icons/phone.png') 0 0 no-repeat;
-    }
-  }
+  //&__email {
+  //  &:before {
+  //    background: url('~@/assets/img/icons/email.png') 0 0 no-repeat;
+  //  }
+  //}
+  //&__phone {
+  //  &:before {
+  //    width: 10px;
+  //    height: 10px;
+  //    background-size: cover;
+  //    background: url('~@/assets/img/icons/phone.png') 0 0 no-repeat;
+  //  }
+  //}
 }
 .location {
-  &__spot {
-    &:before {
-      background: url('~@/assets/img/icons/spot.png') 0 0 no-repeat;
-    }
-  }
+  //&__spot {
+  //  &:before {
+  //    background: url('~@/assets/img/icons/spot.png') 0 0 no-repeat;
+  //  }
+  //}
 }
 .footer-title {
   font-size: 35px;
@@ -132,36 +143,26 @@ export default {
     margin-bottom: 10px;
   }
 }
-//.footer-text {
-//  position: relative;
-//  font-size: 20px;
-//  line-height: 30px;
-//  letter-spacing: 0.06em;
-//  color: #f1cdb3;
-//  padding-left: 55px;
-//  margin-bottom: 35px;
-//  &:before {
-//    content: '';
-//    position: absolute;
-//    height: 40px;
-//    width: 40px;
-//    top: 50%;
-//    left: 0;
-//    transform: translateY(-50%);
-//  }
-//  @media (max-width: $md1+px) {
-//    font-size: 15px;
-//    line-height: 25px;
-//    letter-spacing: 0.04em;
-//    padding-left: 55px;
-//    margin-bottom: 25px;
-//  }
-//  @media (max-width: $md2+px) {
-//    font-size: 10px;
-//    line-height: 15px;
-//    letter-spacing: 0.03em;
-//    padding-left: 55px;
-//    margin-bottom: 15px;
-//  }
-//}
+.footer-text {
+  position: relative;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 0.06em;
+  color: #f1cdb3;
+  margin-bottom: 35px;
+  @media (max-width: $md1+px) {
+    font-size: 15px;
+    line-height: 25px;
+    letter-spacing: 0.04em;
+    padding-left: 55px;
+    margin-bottom: 25px;
+  }
+  @media (max-width: $md2+px) {
+    font-size: 10px;
+    line-height: 15px;
+    letter-spacing: 0.03em;
+    padding-left: 55px;
+    margin-bottom: 15px;
+  }
+}
 </style>
