@@ -58,7 +58,7 @@ export default {
 
 <style lang="scss" scoped>
 .donation {
-  padding: 75px 0;
+  padding: 75px 20px;
   display: flex;
   @media (max-width: $md2+px) {
     flex-direction: column;
@@ -77,7 +77,7 @@ export default {
     flex: 1 1 30%;
   }
   @media (max-width: $md2+px) {
-    padding: 45px 0;
+    padding: 45px 20px;
   }
 }
 .donation-description {
@@ -93,6 +93,14 @@ export default {
     @media (max-width: $md1+px) {
       font-size: 30px;
       line-height: 40px;
+    }
+    @media (max-width: $md2+px) {
+      font-size: 20px;
+      line-height: 30px;
+    }
+    @media (max-width: $md3+px) {
+      font-size: 15px;
+      line-height: 20px;
     }
   }
   &__bank {

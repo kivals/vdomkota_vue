@@ -11,8 +11,14 @@ import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faVk, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
+library.add(faVk, faInstagram);
+Vue.component('font-awesome-icon', FontAwesomeIcon);
+
 import messagePlugin from '@/plugins/message.plugin';
-//import 'materialize-css/dist/js/materialize.min';
 
 Vue.config.productionTip = false;
 

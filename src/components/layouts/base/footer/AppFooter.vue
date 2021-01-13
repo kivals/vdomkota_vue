@@ -7,11 +7,11 @@
             {{ mainPageConfig.footerTitleQuestions }}
           </h3>
           <div class="contacts__email footer-text">
-            <b-icon icon="envelope" font-scale="1.5"></b-icon>
+            <b-icon icon="envelope" font-scale="1.2"></b-icon>
             {{ shelter.shelterEmail }}
           </div>
           <div class="contacts__phone footer-text">
-            <b-icon icon="phone" font-scale="1.5"></b-icon>
+            <b-icon icon="phone" font-scale="1.2"></b-icon>
             {{ shelter.shelterPhone }}
           </div>
         </div>
@@ -20,8 +20,14 @@
             {{ mainPageConfig.footerTitleVisit }}
           </h3>
           <div class="location__spot footer-text">
-            <b-icon icon="geo-alt" font-scale="1.5"></b-icon>
+            <b-icon icon="geo-alt" font-scale="1.2"></b-icon>
             {{ shelter.shelterAddress }}
+          </div>
+          <div class="contacts__social footer-text">
+            <div class="icon">
+              <font-awesome-icon :icon="['fab', 'vk']" />
+              <font-awesome-icon :icon="['fab', 'instagram']" />
+            </div>
           </div>
         </div>
         <app-div-cover
@@ -72,9 +78,21 @@ export default {
   }
   &__contacts {
     flex: 0 1 33.333%;
+    .footer-text:last-child {
+      margin-bottom: 0;
+    }
+    @media (max-width: $md3+px) {
+      flex: 0 1 40%;
+    }
   }
   &__location {
     flex: 0 1 33.333%;
+    .footer-text:last-child {
+      margin-bottom: 0;
+    }
+    @media (max-width: $md3+px) {
+      flex: 0 1 40%;
+    }
   }
   &__photo {
     flex: 0 1 33.333%;
@@ -95,28 +113,6 @@ export default {
   @media (max-width: $md3+px) {
     padding-top: 35px;
   }
-}
-.contacts {
-  //&__email {
-  //  &:before {
-  //    background: url('~@/assets/img/icons/email.png') 0 0 no-repeat;
-  //  }
-  //}
-  //&__phone {
-  //  &:before {
-  //    width: 10px;
-  //    height: 10px;
-  //    background-size: cover;
-  //    background: url('~@/assets/img/icons/phone.png') 0 0 no-repeat;
-  //  }
-  //}
-}
-.location {
-  //&__spot {
-  //  &:before {
-  //    background: url('~@/assets/img/icons/spot.png') 0 0 no-repeat;
-  //  }
-  //}
 }
 .footer-title {
   font-size: 35px;
@@ -142,6 +138,12 @@ export default {
     letter-spacing: 0.02em;
     margin-bottom: 10px;
   }
+  @media (max-width: $md4+px) {
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+  }
 }
 .footer-text {
   position: relative;
@@ -150,18 +152,22 @@ export default {
   letter-spacing: 0.06em;
   color: #f1cdb3;
   margin-bottom: 35px;
+  .icon svg {
+    margin-left: 15px;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
   @media (max-width: $md1+px) {
     font-size: 15px;
     line-height: 25px;
     letter-spacing: 0.04em;
-    padding-left: 55px;
     margin-bottom: 25px;
   }
   @media (max-width: $md2+px) {
     font-size: 10px;
     line-height: 15px;
     letter-spacing: 0.03em;
-    padding-left: 55px;
     margin-bottom: 15px;
   }
 }

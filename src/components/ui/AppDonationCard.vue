@@ -37,6 +37,14 @@ export default {
     font-size: 16px;
     letter-spacing: 0.04em;
   }
+  @media (max-width: $md2+px) {
+    font-size: 14px;
+    letter-spacing: 0.05em;
+  }
+  @media (max-width: $md3+px) {
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
 
   &:before {
     content: '';
