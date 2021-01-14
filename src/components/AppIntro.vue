@@ -1,6 +1,9 @@
 <template>
   <section class="intro">
-    <div class="intro__video">
+    <div v-if="isMobileView" class="intro__img">
+      <img src="https://i12.fotocdn.net/s125/0ccc87e3d624a6ea/public_pin_m/2842757689.jpg" alt="" />
+    </div>
+    <div v-else class="intro__video">
       <video autoplay muted loop>
         <source :src="videoUrl" type="video/mp4" />
         Your browser does not support HTML5 video.
@@ -37,6 +40,11 @@ export default {
   components: {
     AppButton,
   },
+  computed: {
+    isMobileView() {
+      return this.$store.getters.isMobileView;
+    },
+  },
 };
 </script>
 
@@ -54,7 +62,6 @@ export default {
   }
   @media (max-width: $md2+px) {
     height: 250px;
-    margin-bottom: 50px;
   }
   &__video {
     width: 100%;
@@ -66,6 +73,19 @@ export default {
     }
     @media (max-width: $md4+px) {
       display: none;
+    }
+  }
+  &__img {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    img {
+      width: 100%;
+      height: auto;
+      position: absolute;
+      left: 0;
+      top: 0;
     }
   }
   &__text {
