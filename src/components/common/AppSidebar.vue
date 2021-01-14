@@ -38,7 +38,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 ul.sidebar-panel-nav > li > a {
   color: #fff;
   text-decoration: none;
@@ -68,11 +68,12 @@ ul.sidebar-panel-nav {
   top: 0;
   left: 0;
   cursor: pointer;
+  z-index: 100;
 }
 
 .sidebar-panel {
   overflow-y: auto;
-  background-color: #130f40;
+  background-color: $main-color;
   position: fixed;
   left: 0;
   top: 0;

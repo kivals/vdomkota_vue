@@ -66,7 +66,6 @@ export default {
           },
         ],
       },
-      imagePath: require('@/assets/img/cats_slider/1.jpg'),
     };
   },
 };

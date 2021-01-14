@@ -52,7 +52,6 @@ export default {
   },
   methods: {
     isMobileHandler() {
-      console.log(window.outerWidth);
       window.outerWidth < MOBILE_WIDTH
         ? this.$store.commit('setMobileView', true)
         : this.$store.commit('setMobileView', false);
@@ -62,6 +61,4 @@ export default {
 </script>
 <style lang="scss">
 @import '@/assets/sass/common/style.scss';
-
-//@import '~materialize-css/dist/css/materialize.min.css';
 </style>
