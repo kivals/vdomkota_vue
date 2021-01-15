@@ -19,14 +19,14 @@
       <div class="cat-description__title">
         {{ cat.name }}
       </div>
+      <ul class="cat-description__list">
+        <li><span>В приюте: </span>5 месяцев</li>
+        <li><span>Возраст: </span>{{ cat.age }} месяцев</li>
+        <li><span>Болезни: </span>{{ cat.diseases }}</li>
+      </ul>
       <div class="cat-description__text">
         {{ cat.info }}
       </div>
-      <ul class="cat-description__list">
-        <li><span>Возраст:</span>{{ cat.age }} месяцев</li>
-        <li><span>Болезни:</span>{{ cat.diseases }}</li>
-        <li><span>Паразиты:</span>{{ cat.parasites }}</li>
-      </ul>
     </div>
   </div>
 </template>

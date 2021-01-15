@@ -57,10 +57,10 @@ export default {
   justify-content: center;
   color: #fff;
   position: relative;
-  @media (max-width: $md1+px) {
-    height: 400px;
-  }
   @media (max-width: $md2+px) {
+    height: 350px;
+  }
+  @media (max-width: $md4+px) {
     height: 250px;
   }
   &__video {
@@ -68,6 +68,7 @@ export default {
     height: 100%;
     overflow: hidden;
     video {
+      pointer-events: none;
       min-width: 100%;
       min-height: 100%;
     }

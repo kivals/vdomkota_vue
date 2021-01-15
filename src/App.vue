@@ -12,7 +12,7 @@ import AdminLayout from '@/components/layouts/admin/AdminLayout';
 import AdminEmptyLayout from '@/components/layouts/admin/AdminEmptyLayout';
 import BaseEmptyLayout from '@/components/layouts/base/BaseEmptyLayout';
 
-const MOBILE_WIDTH = 768;
+const MOBILE_WIDTH = 1170;
 export default {
   name: 'App',
   components: {
