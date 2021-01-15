@@ -1,7 +1,5 @@
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production'
-    ? '/vdomkota_vue/'
-    : '/',
+  publicPath: process.env.BASE_URL,
   css: {
     loaderOptions: {
       scss: {
