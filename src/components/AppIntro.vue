@@ -6,6 +6,7 @@
     <div v-else class="intro__video">
       <video autoplay muted loop>
         <source :src="videoUrl" type="video/mp4" />
+        <source src="https://firebasestorage.googleapis.com/v0/b/vdomkota-6332e.appspot.com/o/main-page-config%2F480.webm?alt=media&token=2529a684-15bd-4773-9cb6-d01cb8ddfba0" type="video/webm" />
         Your browser does not support HTML5 video.
       </video>
     </div>

@@ -12,6 +12,14 @@
         >{{ item.title }}</router-link
       >
     </ul>
+    <div class="menu-social-icon">
+      <a target="_blank" rel="noopener noreferrer" href="http://vk.com">
+        <font-awesome-icon :icon="['fab', 'vk']" />
+      </a>
+      <a target="_blank" rel="noopener noreferrer" href="http://instagram.com/">
+        <font-awesome-icon :icon="['fab', 'instagram']" />
+      </a>
+    </div>
   </div>
 </template>
 

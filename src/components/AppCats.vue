@@ -62,7 +62,7 @@ export default {
           },
           {
             //Todo надо как-то объеденить с переменными CSS
-            breakpoint: 479,
+            breakpoint: 560,
             settings: {
               arrows: false,
               slidesToShow: 1,

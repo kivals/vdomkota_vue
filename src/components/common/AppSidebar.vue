@@ -8,6 +8,14 @@
             <router-link :to="item.to">{{ item.title }}</router-link>
           </li>
         </ul>
+        <div class="menu-social-icon">
+          <a target="_blank" rel="noopener noreferrer" href="http://vk.com">
+            <font-awesome-icon :icon="['fab', 'vk']" />
+          </a>
+          <a target="_blank" rel="noopener noreferrer" href="http://instagram.com/">
+            <font-awesome-icon :icon="['fab', 'instagram']" />
+          </a>
+        </div>
       </div>
     </transition>
   </div>
@@ -81,5 +89,10 @@ ul.sidebar-panel-nav {
   z-index: 999;
   padding: 3rem 20px 2rem 20px;
   width: 200px;
+}
+.menu-social-icon {
+  a {
+    color: #1300ff;
+  }
 }
 </style>
