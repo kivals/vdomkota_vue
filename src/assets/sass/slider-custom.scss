@@ -20,12 +20,6 @@
   &.slick-prev {
     left: -55px;
     background: url('~@/assets/img/icons/left.png') center no-repeat;
-    @media (max-width:$md1+px){
-      left: -45px;
-    }
-    @media (max-width:$md2+px){
-      left: -37px;
-    }
     &:hover {
       background-color: $main-color;
     }
@@ -34,12 +28,6 @@
   &.slick-next {
     right: -55px;
     background: url('~@/assets/img/icons/right.png') center no-repeat;
-    @media (max-width:$md1+px){
-      right: -45px;
-    }
-    @media (max-width:$md2+px){
-      right: -37px;
-    }
     &:hover {
       background-color: $main-color;
     }
@@ -53,39 +41,28 @@
 .slick-dots {
   position: absolute;
   bottom: -25px;
-
   display: block;
-
   width: 100%;
   padding: 0;
   margin: 0;
-
   list-style: none;
-
   text-align: center;
   li {
     position: relative;
-
     display: inline-block;
-
     width: 20px;
     height: 20px;
     margin: 0 5px;
     padding: 0;
-
     cursor: pointer;
     button {
       font-size: 0;
       line-height: 0;
-
       display: block;
-
       width: 20px;
       height: 20px;
       padding: 5px;
-
       cursor: pointer;
-
       color: transparent;
       border: 0;
       outline: none;
@@ -104,7 +81,6 @@
 }
 .slick-dots li button:before {
   font-family: 'slick';
-  font-size: 6px;
   line-height: 20px;
   position: absolute;
   top: 0;
@@ -113,13 +89,13 @@
   height: 20px;
   content: '•';
   text-align: center;
-  opacity: 0.25;
-  color: black;
-
+  opacity: .3;
+  font-size: 25px;
+  color: $main-color;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale
 }
 .slick-dots li.slick-active button:before {
-  opacity: 0.75;
-  color: black;
+  opacity: 1;
+  color: $main-color;
 }

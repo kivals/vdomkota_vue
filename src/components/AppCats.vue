@@ -14,10 +14,9 @@
         >
           <div class="cat-card__wrapper">
             <div class="cat-card__photo">
-              <app-div-cover
-                class="cat-card__img"
-                :imagePath="cat.photo"
-              ></app-div-cover>
+              <div class="img-wrapper">
+                <img :src="cat.photo" alt="" />
+              </div>
             </div>
             <p class="cat-card__name">{{ cat.name }}</p>
             <app-button class="cat-card__btn">Подробнее</app-button>
@@ -32,14 +31,11 @@
 import '@/assets/sass/slider-custom.scss';
 import 'vue-slick-carousel/dist/vue-slick-carousel.css';
 import VueSlickCarousel from 'vue-slick-carousel';
-import AppDivCover from '@/components/ui/AppDivCover';
 import AppButton from '@/components/ui/AppButton';
-
 export default {
   name: 'AppCats',
   components: {
     VueSlickCarousel,
-    AppDivCover,
     AppButton,
   },
   props: {
@@ -56,7 +52,17 @@ export default {
         responsive: [
           {
             //Todo надо как-то объеденить с переменными CSS
-            breakpoint: 780,
+            breakpoint: 1200,
+            settings: {
+              arrows: false,
+              dots: true,
+              slidesToShow: 2,
+              slidesToScroll: 2,
+            },
+          },
+          {
+            //Todo надо как-то объеденить с переменными CSS
+            breakpoint: 479,
             settings: {
               arrows: false,
               slidesToShow: 1,
@@ -67,6 +73,11 @@ export default {
         ],
       },
     };
+  },
+  computed: {
+    isMobileView() {
+      return this.$store.getters.isMobileView;
+    },
   },
 };
 </script>
@@ -81,7 +92,6 @@ export default {
 }
 .cat-card {
   cursor: pointer;
-  margin-bottom: 20px;
   &:hover {
     box-shadow: 0px 2px 30px 5px rgba(13, 13, 13, 0.03);
     .cat-card__btn {
@@ -94,17 +104,21 @@ export default {
     align-items: center;
   }
   &__photo {
-    height: 250px;
     width: 350px;
     margin-bottom: 30px;
+    .img-wrapper {
+      width: 100%;
+      overflow: hidden;
+      img {
+        height: auto;
+        width: 100%;
+      }
+    }
     @media (max-width: $md1+px) {
       width: 250px;
+      margin-bottom: 5px;
     }
-    @media (max-width: $md2+px) {
-      height: 200px;
-      width: 200px;
-    }
-    @media (max-width: $md3+px) {
+    @media (max-width: $md4+px) {
       min-height: 100%;
       min-width: 100%;
     }
@@ -114,9 +128,15 @@ export default {
     letter-spacing: 0.06em;
     color: #545454;
     margin-bottom: 24px;
+    @media (max-width: $md1+px) {
+      margin-bottom: 10px;
+    }
   }
   &__btn {
     margin-bottom: 34px;
+    @media (max-width: $md1+px) {
+      margin-bottom: 10px;
+    }
   }
 }
 </style>

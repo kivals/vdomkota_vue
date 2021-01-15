@@ -12,6 +12,7 @@ export default {
 
 <style lang="scss" scoped>
 .app-btn {
+  text-align: center;
   cursor: pointer;
   display: block;
   text-transform: uppercase;
