@@ -1,7 +1,7 @@
 <template>
   <div class="find-page">
-    <app-popup v-if="catPopupId" :catId="catPopupId" @closePopup="closePopup">
-    </app-popup>
+<!--    <app-popup v-if="catPopupId" :catId="catPopupId" @closePopup="closePopup">-->
+<!--    </app-popup>-->
     <div class="container">
       <p class="find-page__title">{{ findPageConfig.title }}</p>
       <div class="find-page__cats">
@@ -30,14 +30,14 @@
 <script>
 import AppButton from '@/components/ui/AppButton';
 import AppDivCover from '@/components/ui/AppDivCover';
-import AppPopup from '@/components/ui/popup/AppPopup';
+// import AppPopup from '@/components/ui/popup/AppPopup';
 
 export default {
   name: 'Find',
   components: {
     AppButton,
     AppDivCover,
-    AppPopup,
+    // AppPopup,
   },
   data() {
     return {
@@ -64,12 +64,12 @@ export default {
     this.cats = this.$store.getters.cats;
   },
   methods: {
-    showCatPopup(id) {
-      this.catPopupId = id;
-    },
-    closePopup() {
-      this.catPopupId = '';
-    },
+    // showCatPopup(id) {
+    //   this.catPopupId = id;
+    // },
+    // closePopup() {
+    //   this.catPopupId = '';
+    // },
   },
 };
 </script>

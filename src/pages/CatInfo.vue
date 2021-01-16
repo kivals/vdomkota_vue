@@ -1,16 +1,14 @@
 <template>
   <div v-if="cat" class="cat-info container">
     <div class="cat-info__slider">
-      <b-carousel id="carousel-2" :interval="1000000" controls indicators>
+      <b-carousel id="carousel-2" :interval="5000000" controls indicators>
         <b-carousel-slide v-for="(photo, ind) in cat.photos" :key="ind">
           <template #img>
-            <div class="img-wrapper">
-              <img
-                class="d-block img-fluid w-100"
-                :src="photo"
-                alt="image slot"
-              />
-            </div>
+            <img
+              class="d-block img-fluid w-100"
+              :src="photo"
+              alt="image slot"
+            />
           </template>
         </b-carousel-slide>
       </b-carousel>
@@ -56,17 +54,6 @@ export default {
 </script>
 
 <style scoped>
-.img-wrapper {
-  position: relative;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio */
-}
-img {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: auto;
-}
 .cat-description {
   padding: 50px 0;
 }
