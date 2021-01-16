@@ -91,8 +91,12 @@ ul.sidebar-panel-nav {
   width: 200px;
 }
 .menu-social-icon {
+  text-align: left;
   a {
-    color: #1300ff;
+    color: #000;
+    &:first-child {
+      margin-left: 0;
+    }
   }
 }
 </style>
