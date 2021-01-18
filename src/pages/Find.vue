@@ -85,7 +85,7 @@ export default {
     line-height: 45px;
     letter-spacing: 0.06em;
     color: #545454;
-    max-width: 400px;
+    text-align: center;
     @media (max-width: $md2+px) {
       margin: 0 auto 42px auto;
       font-size: 25px;

@@ -35,31 +35,31 @@ export default {
       icons: [
         {
           name: 'food',
-          description: 'Pet food',
+          description: 'Еда',
         },
         {
           name: 'transport',
-          description: 'Transportation',
+          description: 'Транспортировка',
         },
         {
           name: 'ball',
-          description: 'Toys',
+          description: 'Игрушки',
         },
         {
           name: 'bowl',
-          description: 'Bowls and cups',
+          description: 'Миски',
         },
         {
           name: 'shampoo',
-          description: 'Shampoos',
+          description: 'Шампуни',
         },
         {
           name: 'pills',
-          description: 'Vitamins',
+          description: 'Витамины',
         },
         {
           name: 'medicine',
-          description: 'Medicines',
+          description: 'Лекарства',
         },
         {
           name: 'collars',
@@ -67,7 +67,7 @@ export default {
         },
         {
           name: 'cat',
-          description: 'Sleeping area',
+          description: 'Ночлег и передержка',
         },
       ],
     };

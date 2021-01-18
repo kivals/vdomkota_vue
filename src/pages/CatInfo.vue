@@ -1,7 +1,7 @@
 <template>
   <div v-if="cat" class="cat-info container">
     <div class="cat-info__slider">
-      <b-carousel id="carousel-2" :interval="5000000" controls indicators>
+      <b-carousel id="carousel-2" :interval="5000" controls indicators>
         <b-carousel-slide v-for="(photo, ind) in cat.photos" :key="ind">
           <template #img>
             <img
@@ -14,26 +14,31 @@
       </b-carousel>
     </div>
     <div class="cat-info__text cat-description">
-      <div class="cat-description__title">
-        {{ cat.name }}
-      </div>
+      <div class="cat-description__title">Кличка: {{ cat.name }}</div>
       <ul class="cat-description__list">
-        <li><span>В приюте: </span>5 месяцев</li>
         <li><span>Возраст: </span>{{ cat.age }} месяцев</li>
-        <li><span>Болезни: </span>{{ cat.diseases }}</li>
+        <li><span>Кастрирован: </span>{{ cat.neutered ? 'Да' : 'Нет' }}</li>
+        <li><span>Прививки: </span>{{ cat.vaccinations }}</li>
+        <li><span>Скрытые инфекции: </span>{{ cat.hiddenInfections }}</li>
       </ul>
       <div class="cat-description__text">
         {{ cat.info }}
       </div>
+      <app-button @click="goToGoogleForms()"
+        >Оставить заявку на котика</app-button
+      >
     </div>
   </div>
 </template>
 
 <script>
 import cloneDeep from 'lodash/cloneDeep';
-
+import AppButton from '@/components/ui/AppButton';
 export default {
   name: 'CatInfo',
+  components: {
+    AppButton,
+  },
   data() {
     return {
       cat: {},
@@ -48,6 +53,12 @@ export default {
       if (storeCat) {
         this.cat = cloneDeep(storeCat);
       }
+    },
+    goToGoogleForms() {
+      window.open(
+        'https://docs.google.com/forms/d/1PEqWVWYwrkqdPwlh09GGG520wq1OVmQsGlZrRPsMWWQ/edit?usp=sharing',
+        '_blank',
+      );
     },
   },
 };
