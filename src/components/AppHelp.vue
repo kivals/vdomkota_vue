@@ -35,7 +35,7 @@ export default {
       icons: [
         {
           name: 'food',
-          description: 'Еда',
+          description: 'Корм',
         },
         {
           name: 'transport',
@@ -43,31 +43,27 @@ export default {
         },
         {
           name: 'ball',
-          description: 'Игрушки',
-        },
-        {
-          name: 'bowl',
-          description: 'Миски',
+          description: 'Игрушки и лежанки',
         },
         {
           name: 'shampoo',
-          description: 'Шампуни',
+          description: 'Средства гигиены и уборки',
         },
         {
           name: 'pills',
-          description: 'Витамины',
+          description: 'Витамины и лекарства',
         },
         {
           name: 'medicine',
-          description: 'Лекарства',
-        },
-        {
-          name: 'collars',
-          description: 'Collars / leashes',
+          description: 'Средства от паразитов',
         },
         {
           name: 'cat',
-          description: 'Ночлег и передержка',
+          description: 'Наполнитель',
+        },
+        {
+          name: 'bowl',
+          description: 'Лотки и миски',
         },
       ],
     };
@@ -80,7 +76,6 @@ export default {
   background-color: $main-background-color;
   padding-top: 60px;
   &__title {
-    max-width: 316px;
     font-size: 35px;
     line-height: 45px;
     letter-spacing: 0.06em;
@@ -116,7 +111,7 @@ export default {
     flex-wrap: wrap;
   }
   &__item {
-    flex: 0 0 20%;
+    flex: 0 0 25%;
     margin-bottom: 80px;
     @media (max-width: $md1+px) {
       margin-bottom: 60px;
@@ -138,25 +133,30 @@ export default {
 }
 
 .help-item {
+  padding: 15px;
+  cursor: pointer;
+  border-radius: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: 0.6s;
   &__img {
     max-width: 50px;
-    max-height: 60px;
+    height: 50px;
     margin-bottom: 25px;
     @media (max-width: $md1+px) {
-      max-width: 45px;
-      max-height: 55px;
+      max-width: 40px;
+      height: 40px;
       margin-bottom: 20px;
     }
     @media (max-width: $md4+px) {
       max-width: 35px;
-      max-height: 45px;
+      height: 35px;
       margin-bottom: 15px;
     }
   }
   &__description {
+    text-align: center;
     font-size: 20px;
     letter-spacing: 0.06em;
     color: #545454;
@@ -168,6 +168,11 @@ export default {
       font-size: 12px;
       letter-spacing: 0.03em;
     }
+  }
+  &:hover {
+    -webkit-box-shadow: 0 2px 5px 3px rgba(242, 140, 176, 1);
+    -moz-box-shadow: 0 2px 5px 3px rgba(242, 140, 176, 1);
+    box-shadow: 0 2px 5px 3px rgba(242, 140, 176, 1);
   }
 }
 </style>
