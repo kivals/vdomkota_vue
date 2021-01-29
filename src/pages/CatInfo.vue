@@ -17,12 +17,12 @@
       <div class="cat-description__title">Кличка: {{ cat.name }}</div>
       <ul class="cat-description__list">
         <li><span>Возраст: </span>{{ cat.age }} месяцев</li>
-        <li><span>Кастрирован: </span>{{ cat.neutered ? 'Да' : 'Нет' }}</li>
+        <li><span>Кастрирован/Стерилизована: </span>{{ cat.neutered ? 'Да' : 'Нет' }}</li>
         <li><span>Прививки: </span>{{ cat.vaccinations }}</li>
         <li><span>Скрытые инфекции: </span>{{ cat.hiddenInfections }}</li>
       </ul>
       <div class="cat-description__text">
-        {{ cat.info }}
+        <span v-html="cat.info"></span>
       </div>
       <app-button @click="goToGoogleForms()"
         >Оставить заявку на котика</app-button

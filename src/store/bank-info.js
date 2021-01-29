@@ -1,9 +1,9 @@
 export default {
   state: {
     bank: {
-      bankInfo: 'информация о банке',
-      bankName: 'Титькоф',
-      cardNumber: '8380 2880 8028 8791 7435',
+      bankInfo: 'Яндекс Кошелек: 41001825208986 ',
+      bankName: 'Сбербанк',
+      cardNumber: '4817 7601 8652 8737',
       accountType: 'Расчетный',
     },
   },

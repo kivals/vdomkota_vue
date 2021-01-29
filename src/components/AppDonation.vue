@@ -11,7 +11,7 @@
       <p class="donation-description__bank">
         {{ bankName }} / {{ accountType }}
       </p>
-      <app-donation-card>8380 2880 8028 8791 7435</app-donation-card>
+      <app-donation-card>4817 7601 8652 8737</app-donation-card>
       <p class="donation-description__text">
         {{ bankInfo }}
       </p>
