@@ -99,7 +99,7 @@ export default {
         margin: 0;
       }
     }
-    @media(max-width: $md2+px) {
+    @media (max-width: $md2+px) {
       font-size: 12px;
       line-height: 20px;
     }

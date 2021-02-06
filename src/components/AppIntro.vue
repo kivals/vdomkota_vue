@@ -1,12 +1,18 @@
 <template>
   <section class="intro">
     <div v-if="isMobileView" class="intro__img">
-      <img src="https://i12.fotocdn.net/s125/0ccc87e3d624a6ea/public_pin_m/2842757689.jpg" alt="" />
+      <img
+        src="https://i12.fotocdn.net/s125/0ccc87e3d624a6ea/public_pin_m/2842757689.jpg"
+        alt=""
+      />
     </div>
     <div v-else class="intro__video">
       <video autoplay muted loop>
         <source :src="videoUrl" type="video/mp4" />
-        <source src="https://firebasestorage.googleapis.com/v0/b/vdomkota-6332e.appspot.com/o/main-page-config%2F480.webm?alt=media&token=2529a684-15bd-4773-9cb6-d01cb8ddfba0" type="video/webm" />
+        <source
+          src="https://firebasestorage.googleapis.com/v0/b/vdomkota-6332e.appspot.com/o/main-page-config%2F480.webm?alt=media&token=2529a684-15bd-4773-9cb6-d01cb8ddfba0"
+          type="video/webm"
+        />
         Your browser does not support HTML5 video.
       </video>
     </div>

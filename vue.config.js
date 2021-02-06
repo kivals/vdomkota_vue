@@ -13,4 +13,9 @@ module.exports = {
       return args;
     });
   },
+  pluginOptions: {
+    sitemap: {
+      urls: ['https://vdomkota.ru/', 'https://vdomkota.ru/find'],
+    },
+  },
 };

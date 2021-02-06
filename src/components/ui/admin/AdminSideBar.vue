@@ -1,5 +1,5 @@
 <template>
-  <ul class="sidenav app-sidenav" :class="{open}">
+  <ul class="sidenav app-sidenav" :class="{ open }">
     <li>
       <a class="waves-effect waves-grey pointer" href="#!">
         <i class="material-icons">home</i>

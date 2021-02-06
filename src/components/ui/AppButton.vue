@@ -23,7 +23,7 @@ export default {
   font-size: 17px;
   transition: all 0.6s ease;
   letter-spacing: 0.06em;
-  @media (max-width:$md3+px){
+  @media (max-width: $md3+px) {
     padding: 10px 30px;
     font-size: 12px;
   }

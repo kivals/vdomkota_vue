@@ -105,7 +105,7 @@ export default {
   }
   &__text {
     overflow: auto;
-   // width: 50%;
+    // width: 50%;
   }
   //@media (max-width: $md2+px) {
   //  display: block;
